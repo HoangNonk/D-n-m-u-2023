@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="row mb menu">
-            <ul>
+            <ul class="flex row controladmin">
                 <li><a href="index.php?act=listdm">Danh mục</a></li>
                 <li><a href="index.php?act=listsp">Hàng hóa</a></li>
                 <li><a href="index.php?act=listkh">Khách hàng</a></li>

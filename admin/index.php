@@ -11,7 +11,7 @@ include '../model/thongke.php';
 $list_danhmuc = list_danhmuc('');
 $list_kh = list_kh('');
 $list_sanpham = list_sanpham('', 0);
-$list_top10 = list_top10();
+$list_top10 = list_top();
 $list_sanpham_home = list_sanpham_home();
 $thongke = thongke_sp_dm();
 

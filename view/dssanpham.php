@@ -1,13 +1,23 @@
 <div class="row mb">
-    <div class="boxleft mr">
-        <?php if (isset($search_result) && $search_result != '') { ?>
+    <?php if (isset($search_result) && $search_result != '') {
+        if (count($list_sanpham) == 0) { ?>
+            <h4 class="title_cate"><?= 'Không tìm thấy kết quả : "' . $kyw . '"' ?></h4>
+        <?php } else { ?>
             <h4 class="title_cate"><?= $search_result . ' cho "' . $kyw . '"' ?></h4>
-        <?php } else if (isset($ten_dm) && $ten_dm != '') { ?>
-            <h3 class="title_cate"><?= $ten_dm ?></h3>
         <?php } ?>
+    <?php } ?>
+    <?php if (isset($ten_dm) && $ten_dm != '') { ?>
+        <h3 class="title_cate"><?= $ten_dm ?></h3>
+    <?php } ?>
 
-        <div class="row products">
-            <?php foreach ($list_sanpham as $sp) {
+
+    <div class="row products">
+        <?php if (count($list_sanpham) == 0) { ?>
+            <div class="row boxproducts">
+                <h4>Chưa có sản phẩm nào</h4>
+            </div>
+            <?php } else {
+            foreach ($list_sanpham as $sp) {
                 extract($sp);
             ?>
                 <div class="boxproducts">
@@ -28,7 +38,6 @@
                     </div>
                 </div>
             <?php } ?>
-        </div>
+        <?php } ?>
     </div>
-    <?php include 'boxright.php' ?>
 </div>

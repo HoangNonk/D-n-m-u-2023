@@ -5,14 +5,18 @@
     transition: 0.3s;
 }
 
+.mg-0 {
+    margin: 0 !important;
+}
+
 .flex {
     display: flex;
     align-items: center;
     justify-content: start;
 }
 
-.gap10 {
-    gap: 10px;
+.evenly {
+    justify-content: space-evenly;
 }
 
 .al-start {
@@ -50,13 +54,34 @@ a {
     margin-bottom: 10px;
 }
 
-.mr {
-    margin-right: 2%;
-}
-
 .demo {
     background-color: antiquewhite;
     min-height: 100px;
+}
+
+.searching {
+    margin-top: 1.2%;
+    padding: 0px 15px;
+}
+
+.searching input {
+    padding: 5px;
+}
+
+.searching button {
+    padding: 5px;
+    background-color: rgba(53, 53, 53, 0.8);
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.searching button:hover {
+    background-color: gray;
+}
+
+.controladmin {
+    padding: 0 30px;
+    gap: 50px;
 }
 
 .header {
@@ -89,13 +114,13 @@ a {
     width: fit-content;
     padding: 10px;
     border-radius: 5px;
-    background-color: rgba(53,53,53,0.9);
-    border: 1px solid rgba(53,53,53,0.6);
+    background-color: rgba(53, 53, 53, 0.9);
+    border: 1px solid rgba(53, 53, 53, 0.6);
     color: #fff;
 }
 
 .sign a:hover {
-    color: rgba(255,156,0,1);
+    color: rgba(255, 156, 0, 1);
 }
 
 .sign a:active {
@@ -121,25 +146,81 @@ a {
 }
 
 .menu {
-    background-color: rgba(0, 0, 0, 0.9);
-    background-color: rgba(53,53,53,1);
+    background-color: rgba(53, 53, 53, 1);
     color: #ccc;
     border-radius: 5px;
+    /* height: 60px; */
 }
 
-.boxleft {
-    float: left;
-    width: 74%;
+
+.menu ul li {
+    list-style-type: none;
+    height: 100%;
 }
 
-.boxright {
-    float: left;
-    width: 24%;
+.menu ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.menu ul li a:hover {
+    color: white;
+    font-size: 0.8vw;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown:hover {
+    padding-bottom: 2%;
+}
+
+.dropdown-list {
+    overflow: hidden;
+    padding-left: 0;
+    position: absolute;
+    left: 1%;
+    top: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(53, 53, 53, 0.95);
+    border-radius: 5px;
+    border: none;
+    height: 0;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.dropdown-list li {
+    width: 160px;
+    height: 100%;
+}
+
+.dropdown-list li a {
+    padding: 10px;
+    width: 100%;
+    color: rgba(53, 53, 53, 0.95) !important;
+}
+
+.dropdown-list a:hover {
+    background-color: rgba(53, 53, 53, 0.95);
+    color: #fff !important;
+}
+
+.dropdown:hover .dropdown-list {
+    transition: 0.5s;
+    height: fit-content;
+    opacity: 1;
+}
+
+.dropdown:hover .dropdown-list a {
+    display: block;
 }
 
 .boxtitle {
     padding: 10px;
-    background-color: rgba(255,156,0,1);
+    background-color: rgba(255, 156, 0, 1);
     color: #fff;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -174,13 +255,13 @@ a {
 }
 
 .banner {
-    min-height: 300px;
+    height: 50vh;
     width: 100%;
     text-align: center;
 }
 
 .banner img {
-    height: 300px;
+    height: 100%;
     width: 100%;
 }
 
@@ -188,7 +269,7 @@ a {
     cursor: pointer;
     float: left;
     height: fit-content;
-    border: 1px solid rgba(53,53,53,0.2);
+    border: 1px solid rgba(53, 53, 53, 0.2);
     border-radius: 5px;
     overflow: hidden;
     text-align: center;
@@ -205,19 +286,19 @@ a {
 }
 
 .boxproducts:hover {
-    box-shadow: 0 0 10px rgba(53,53,53,0.6);
+    box-shadow: 0 0 10px rgba(53, 53, 53, 0.6);
     transform: scale(1.01);
 }
 
 .products {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
     gap: 2%;
 }
 
 .boxproducts .img {
-    border-bottom: 1px solid rgba(53,53,53,0.2);
+    border-bottom: 1px solid rgba(53, 53, 53, 0.2);
     overflow: hidden;
     min-height: 230px;
     text-align: center;
@@ -225,7 +306,7 @@ a {
 
 .boxproducts a {
     text-decoration: none;
-    color: rgba(53,53,53,1);
+    color: rgba(53, 53, 53, 1);
 }
 
 .name_pro,
@@ -252,13 +333,13 @@ a {
     border: none;
     color: #fff;
     overflow: hidden;
-    background-color: rgba(53,53,53,0.8);
+    background-color: rgba(53, 53, 53, 0.8);
     transition: 0.5s;
 }
 
 .btn_pro button:active,
 .btn_pro button:hover {
-    background-color: rgba(255,156,0,1);
+    background-color: rgba(255, 156, 0, 1);
 }
 
 .jumpmove {
@@ -266,15 +347,21 @@ a {
 }
 
 @keyframes jumpmove {
-    0%, 20% {
+
+    0%,
+    20% {
         transform: translateY(-20%) translateX(-100%);
     }
-    10%, 30% {
+
+    10%,
+    30% {
         transform: translateY(10%) translateX(-100%);
     }
+
     40% {
         transform: translateX(-100%);
     }
+
     100% {
         transform: translateX(300%);
     }
@@ -308,21 +395,21 @@ a {
 
 h3 {
     font-size: 1.7vw;
-    color: rgba(53,53,53,0.95);
+    color: rgba(53, 53, 53, 0.95);
 }
 
 .title_cate {
     padding-left: 2%;
-    border-left: 5px solid rgba(255,156,0,1);
+    border-left: 5px solid rgba(255, 156, 0, 1);
 }
 
 h4 {
     font-size: 1.3vw;
-    color: rgba(53,53,53,0.95);
+    color: rgba(53, 53, 53, 0.95);
 }
 
 .detail_pro h3 span {
-    color: rgba(53,53,53,0.8);
+    color: rgba(53, 53, 53, 0.8);
     font-size: 1.3vw;
     font-weight: 500;
 }
@@ -330,35 +417,13 @@ h4 {
 .detail_pro button {
     border: none;
     color: white;
-    background-color: rgba(53,53,53,0.8);
+    background-color: rgba(53, 53, 53, 0.8);
     padding: 5% 10%;
     border-radius: 5px;
 }
 
 .detail_pro button:hover {
-    background-color: rgba(53,53,53,0.6);
-}
-
-
-.menu ul {
-    padding: 0px 15px;
-}
-
-.menu ul li {
-    list-style-type: none;
-    display: inline;
-    padding: 0px 15px;
-}
-
-.menu ul li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: 0.5s;
-}
-
-.menu ul li a:hover {
-    color: white;
-    font-size: 0.8vw;
+    background-color: rgba(53, 53, 53, 0.6);
 }
 
 .formtaikhoan {
@@ -384,7 +449,7 @@ h4 {
     border-radius: 5px;
 }
 
-.formtaikhoan input[type="checkbox"]{
+.formtaikhoan input[type="checkbox"] {
     border-radius: 5px;
 }
 
@@ -396,7 +461,7 @@ h4 {
     /* border-radius: 5px; */
     border: 1px #ccc solid;
     color: white;
-    background: rgba(53,53,53,0.8);
+    background: rgba(53, 53, 53, 0.8);
     padding: 1.5% 3%;
 }
 
@@ -410,40 +475,18 @@ h4 {
 .formcontent input[type="reset"]:hover,
 .formcontent input[type="button"]:hover,
 .formcontent select:hover {
-    background-color: rgba(53,53,53,0.6);
+    background-color: rgba(53, 53, 53, 0.6);
     color: #353535;
 }
 
 .formtaikhoan li a {
-    color: rgba(53,53,53,0.9);
+    color: rgba(53, 53, 53, 0.9);
     text-decoration: none;
 }
 
 .formtaikhoan li a:hover {
-    color: rgba(255,156,0,1);
+    color: rgba(255, 156, 0, 1);
     text-decoration: underline;
-}
-
-.menudoc ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    cursor: pointer;
-}
-
-.menudoc ul li {
-    padding: 10px 20px;
-    background-color: #fff;
-    border-bottom: 1px #ccc solid;
-}
-
-.menudoc ul li a {
-    color: #666;
-    text-decoration: none;
-}
-
-.menudoc ul li:hover {
-    background-color: #ccc;
 }
 
 .searchbox input[type="text"] {
@@ -467,7 +510,7 @@ h4 {
 }
 
 .cungloai li:hover {
-    box-shadow: 0 0 10px rgba(53,53,53,0.7);
+    box-shadow: 0 0 10px rgba(53, 53, 53, 0.7);
     transform: translateY(-4px);
 }
 
@@ -482,7 +525,7 @@ h4 {
 
 .top10:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 10px rgba(53,53,53,0.7);
+    box-shadow: 0 0 10px rgba(53, 53, 53, 0.7);
 }
 
 .top10 img {
@@ -501,6 +544,7 @@ h4 {
     color: #000;
     text-decoration: underline;
 }
+
 .headeradmin {
     display: flex;
     justify-content: start;
@@ -534,17 +578,17 @@ h4 {
     width: 100%;
 }
 
-.formds table th{
+.formds table th {
     padding: 20px;
-    text-align:center;
+    text-align: center;
     margin: 5px;
-    background-color: rgba(53,53,53,1);
+    background-color: rgba(53, 53, 53, 1);
     color: white;
 }
 
 .formds table th:first-child {
     width: 2%;
-    background-color: rgba(53,53,53,0.7);
+    background-color: rgba(53, 53, 53, 0.7);
 }
 
 .formds table th:last-child {
@@ -606,36 +650,36 @@ h4 {
 }
 
 .add {
-    background-color: rgba(53,53,53,0.8);
+    background-color: rgba(53, 53, 53, 0.8);
 }
 
 .edit {
-    background-color: rgba(0,128,0,0.9);
+    background-color: rgba(0, 128, 0, 0.9);
     margin-right: 3%;
 }
 
 .delete {
-    background-color: rgba(255,0,0,1);
+    background-color: rgba(255, 0, 0, 1);
 }
 
 .edit:hover,
 .add:hover,
 .delete:hover {
-    background-color: rgba(53,53,53,0.6);
+    background-color: rgba(53, 53, 53, 0.6);
     color: #353535;
 }
 
 .formsearch input[type='text'],
 .formsearch select {
-    border: 1px solid rgba(53,53,53,0.6);
+    border: 1px solid rgba(53, 53, 53, 0.6);
     padding: 1% 3%;
 }
 
 .formsearch button {
     padding: 1% 3%;
     color: #fff;
-    background-color: rgba(53,53,53,0.8);
-    border: 2px solid rgba(53,53,53,0.01);
+    background-color: rgba(53, 53, 53, 0.8);
+    border: 2px solid rgba(53, 53, 53, 0.01);
 }
 
 .formsearch button:hover {
@@ -654,7 +698,7 @@ h4 {
     border-top-left-radius: 0;
     padding-left: 3%;
     position: relative;
-    border: 1px solid rgba(255,156,0,1);
+    border: 1px solid rgba(255, 156, 0, 1);
 }
 
 .messbox .time {
@@ -683,7 +727,7 @@ h4 {
 .formcomment input[type='text'] {
     margin: 0 10%;
     all: unset;
-    border-bottom: 1px dashed rgba(53,53,53,0.6);
+    border-bottom: 1px dashed rgba(53, 53, 53, 0.6);
     padding: 10px 0 5px 10px;
     width: 100%;
 }
@@ -692,7 +736,7 @@ h4 {
     padding: 1%;
     margin-left: 3%;
     color: white;
-    background-color: rgba(53,53,53,0.95);
+    background-color: rgba(53, 53, 53, 0.95);
 }
 
 .formcomment button i {
@@ -700,7 +744,7 @@ h4 {
 }
 
 .formcomment button:hover {
-    background-color: rgba(255,156,0,1);
+    background-color: rgba(255, 156, 0, 1);
 }
 
 .formcomment button:hover i {
@@ -708,10 +752,14 @@ h4 {
 }
 
 @keyframes jump {
-    0%,60% {
+
+    0%,
+    60% {
         transform: translateY(20%);
     }
-    30%,100% {
+
+    30%,
+    100% {
         transform: translateY(-10%);
     }
 }
@@ -722,12 +770,12 @@ hr {
 
 a .signin {
     padding: 1% 3%;
-    background-color: rgba(53,53,53,0.8);
+    background-color: rgba(53, 53, 53, 0.8);
     border-radius: 5px;
     color: #fff;
     border: none;
 }
 
 a .signin:hover {
-    background-color: rgba(53,53,53,0.6);
+    background-color: rgba(53, 53, 53, 0.6);
 }

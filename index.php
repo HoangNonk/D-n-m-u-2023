@@ -10,7 +10,7 @@ $list_danhmuc = list_danhmuc('');
 $list_sanpham = list_sanpham('', 0);
 $list_sanpham_home = list_sanpham_home();
 $list_kh = list_kh('');
-$list_top10 = list_top10();
+$list_top = list_top();
 
 include 'view/header.php';
 
@@ -181,6 +181,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             }
 
             $list_sanpham = list_sanpham($kyw, $iddm);
+            $list = list_dssp();
             include 'view/controluser.php';
             include 'view/dssanpham.php';
             break;

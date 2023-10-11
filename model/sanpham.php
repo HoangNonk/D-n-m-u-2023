@@ -18,17 +18,22 @@
     }
 
     function list_sanpham_home() {
-        $sql = "SELECT * FROM sanpham where 1 order by id desc limit 0,9";
+        $sql = "SELECT * FROM sanpham where 1 order by id desc limit 0,4";
         return pdo_query($sql);
     }
 
-    function list_top10(){
-        $sql="select * from sanpham where 1 order by luotxem desc limit 0,10";
+    function list_dssp() {
+        $sql = "SELECT * FROM sanpham where 1 order by id desc limit 0,12";
+        return pdo_query($sql);
+    }
+
+    function list_top(){
+        $sql="SELECT * from sanpham where 1 order by luotxem desc limit 0,4";
         return pdo_query($sql);
     }
 
     function sp_cungloai($id,$iddm) {
-        $sql = "SELECT * FROM sanpham where iddm = $iddm and id <> $id";
+        $sql = "SELECT * FROM sanpham where iddm = $iddm and id <> $id order by id desc limit 0,4";
         return pdo_query($sql);
     }
 
