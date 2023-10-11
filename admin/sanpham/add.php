@@ -40,7 +40,7 @@
             </div>
             <div class="row mb10">
                 <p class="mb10">Giá sản phẩm ($)</p>
-                <input type="number" min="100" max="1500" name="giasp" id="" required>
+                <input type="number" min="100" max="2500" name="giasp" id="" required>
             </div>
             <div class="row mb10">
                 <p class="mb10">Hình ảnh sản phẩm</p>

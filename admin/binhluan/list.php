@@ -39,14 +39,14 @@ include '../model/notification.php';
                         <tr>
                             <td><input name="checkbox[]" value=<?= $id ?> type="checkbox"></td>
                             <td><?= $id ?></td>
-                            <td>
+                            <td style="text-align: start">
                                 <?php foreach ($list_kh as $kh) {
                                     if ($kh['id'] == $iduser) {
                                         echo '#' . $iduser . ' - ' . $kh['user'];
                                     }
                                 } ?>
                             </td>
-                            <td>
+                            <td style="text-align: start">
                                 <?php foreach ($list_sanpham as $sp) {
                                     if ($sp['id'] == $idpro) {
                                         echo '#' . $idpro . ' - ' . $sp['name'];
@@ -54,7 +54,7 @@ include '../model/notification.php';
                                 } ?>
                             </td>
                             <td><?= $ngaybinhluan ?></td>
-                            <td><?= $noidung ?></td>
+                            <td style="text-align: start"><?= $noidung ?></td>
                             <td>
                                 <div class="btnbox">
                                     <button class="button delete">

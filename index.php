@@ -20,15 +20,19 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
     switch ($act) {
         case 'dangnhap':
             if (isset($_POST['dangnhap'])) {
-                $list_kh = list_kh('');
-                foreach ($list_kh as $kh) {
-                    if ($kh['user'] == $_POST['user'] && $kh['pass'] == $_POST['pass']) {
-                        $_SESSION['signed'] = $kh['role'];
-                        $_SESSION['iduser'] = $kh['id'];
-                        $_SESSION['nameuser'] = $kh['user'];
-                    } else {
-                        $thongbao = 'Tài khoản hoặc mật khẩu không đúng !';
+                if (count($list_kh) > 0) {
+                    $list_kh = list_kh('');
+                    foreach ($list_kh as $kh) {
+                        if ($kh['user'] == $_POST['user'] && $kh['pass'] == $_POST['pass']) {
+                            $_SESSION['signed'] = $kh['role'];
+                            $_SESSION['iduser'] = $kh['id'];
+                            $_SESSION['nameuser'] = $kh['user'];
+                        } else {
+                            $thongbao = 'Tài khoản hoặc mật khẩu không đúng !';
+                        }
                     }
+                } else {
+                    $thongbao = 'Tài khoản hoặc mật khẩu không đúng !';
                 }
             }
             include 'view/controluser.php';
@@ -42,11 +46,22 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $phone = $_POST['phone'];
                 $address = $_POST['address'];
                 $email = $_POST['email'];
+
+                $same = 0;
                 foreach ($list_kh as $kh) {
-                    if ($user == $kh['user'] || $phone == $kh['tel'] || $email == $kh['email']) {
+                    if ($user == $kh['user']) {
                         $same = 1;
-                    } else {
-                        $same = 0;
+                        $thongbao = 'Tài khoản đăng ký đã tồn tại !';
+                    }
+
+                    if ($phone == $kh['tel']) {
+                        $same = 1;
+                        $thongbao = 'SDT đăng ký đã tồn tại !';
+                    }
+
+                    if ($email == $kh['email']) {
+                        $same = 1;
+                        $thongbao = 'Email đăng ký đã tồn tại !';
                     }
                 }
 
@@ -55,10 +70,9 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                         add_kh($user, $pass, $email, $address, $phone, 2);
                         $_SESSION['signup'] = 1;
                     } else {
+                        echo '<script>event.preventDefault()</script>';
                         $thongbao = 'Mật khẩu không khớp !';
                     }
-                }else {
-                    $thongbao = 'Tài khoản / Email hoặc SDT đăng ký đã tồn tại !';
                 }
             }
             include 'view/controluser.php';
@@ -129,16 +143,20 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
         case 'updatemk':
             if (isset($_POST['update'])) {
                 $id = $_POST['id'];
+                $kh = edit_kh($id);
                 if ($_POST['pass'] == $_POST['repass']) {
                     $pass = $_POST['pass'];
                     update_pass_user($id, $pass);
-                    $_SESSION['updatemk'] = $id;
+                    $_SESSION['updateinfo'] = $id;
+                    include 'view/controluser.php';
+                    include 'view/userinfo.php';
                 } else {
-                    $_SESSION['repass_fail'] = $id;
+                    $thongbao = 'Mật khẩu không khớp !';
+                    include 'view/controluser.php';
+                    include 'view/updatemk.php';
                 }
             }
-            include 'view/controluser.php';
-            include 'view/userinfo.php';
+
             break;
 
         case 'sanpham':
@@ -176,7 +194,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
 
                 $_SESSION['view'] = $sp['luotxem'];
                 $_SESSION['view'] += 1;
-                update_view($detail,$_SESSION['view']);
+                update_view($detail, $_SESSION['view']);
                 unset($_SESSION['view']);
             }
 

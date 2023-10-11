@@ -1,5 +1,5 @@
-<?php 
-    include '../model/notification.php';
+<?php
+include '../model/notification.php';
 ?>
 
 <div class="row">
@@ -22,7 +22,11 @@
                     <th>Địa chỉ</th>
                     <th>SDT</th>
                     <th>Vai trò</th>
-                    <th>THAO TÁC</th>
+                    <th>
+                        <a href="index.php?act=addkh">
+                            <i class="fa-solid fa-circle-plus"></i> Thêm
+                        </a>
+                    </th>
                 </tr>
 
                 <?php if (count($list_kh) == 0) { ?>
@@ -36,7 +40,11 @@
                         $xoakh = "index.php?act=xoakh&id=" . $id;
                     ?>
                         <tr>
-                            <td><input name="checkbox[]" value=<?= $id ?> type="checkbox"></td>
+                            <td>
+                                <?php if ($id != $_SESSION['iduser']) { ?>
+                                    <input name="checkbox[]" value=<?= $id ?> type="checkbox">
+                                <?php } ?>
+                            </td>
                             <td><?= $id ?></td>
                             <td><?= $user ?></td>
                             <td><?= $pass ?></td>
@@ -49,9 +57,11 @@
                                     <button class="button edit">
                                         <a href="<?= $suakh ?>"><i class="fa-solid fa-pen"></i></a>
                                     </button>
-                                    <button class="button delete">
-                                        <a onclick="return confirm(`Xóa tài khoản này ?\n[ Các bình luận từ người dùng này cũng sẽ bị xóa ]`)" href="<?= $xoakh ?>"><i class="fa-solid fa-trash"></i></a>
-                                    </button>
+                                    <?php if ($id != $_SESSION['iduser']) { ?>
+                                        <button class="button delete">
+                                            <a onclick="return confirm(`Xóa các mục này ?\n\n[ ! ] Việc này cũng sẽ xóa các thông tin liên quan :\n* Thông tin của tài khoản\n* Bình luận của tài khoản`)" href="<?= $xoakh ?>"><i class="fa-solid fa-trash"></i></a>
+                                        </button>
+                                    <?php } ?>
                                 </div>
                             </td>
                         </tr>
@@ -62,39 +72,7 @@
         <div class="row mb20">
             <input type="button" onclick="checkAll()" value="Chọn tất cả" />
             <input type="button" onclick="checkRemoveAll()" value="Bỏ chọn tất cả" />
-            <input class="delete_all" type="submit" onclick="return confirm(`Xóa các mục này ?\n[ Đồng nghĩa với việc xóa hết các tài khoản đã chọn và các bình luận của các tài khoản ]`)" name="delete_checkbox" value="Xóa các mục đã chọn" />
-            <a href="index.php?act=addkh">
-                <input type="button" value="Thêm tài khoản" />
-            </a>
+            <input class="delete_all" type="submit" onclick="return confirm(`Xóa các mục này ?\n\n[ ! ] Việc này cũng sẽ xóa các thông tin liên quan :\n* Thông tin của tài khoản\n* Bình luận của tài khoản`)" name="delete_checkbox" value="Xóa các mục đã chọn" />
         </div>
     </form>
-
-    <!-- <script>
-        const delete_all = document.querySelector('.delete_all');
-        const checkbox = document.querySelectorAll('input[type="checkbox"]');
-
-        for (let index = 0; index < checkbox.length; index++) {
-            const box = checkbox[index];
-            box.addEventListener('change', () => {
-                box.checked ? delete_all.style.display = "inline-block" :
-                    delete_all.style.display = "none"
-            })
-        }
-
-        function checkAll() {
-            for (let index = 0; index < checkbox.length; index++) {
-                const box = checkbox[index];
-                box.checked = true;
-                delete_all.style.display = "inline-block"
-            }
-        }
-
-        function checkRemoveAll() {
-            for (let index = 0; index < checkbox.length; index++) {
-                const box = checkbox[index];
-                box.checked = false;
-                delete_all.style.display = "none"
-            }
-        }
-    </script> -->
 </div>

@@ -29,7 +29,11 @@ include '../model/notification.php';
                     <th class="desc">MÔ TẢ</th>
                     <th>GIÁ</th>
                     <th>View <i class="fa-solid fa-eye"></i></th>
-                    <th><i class="fa-brands fa-slack fa-xl"></i></th>
+                    <th>
+                        <a href="index.php?act=addsp">
+                            <i class="fa-solid fa-circle-plus"></i> Thêm
+                        </a>
+                    </th>
                 </tr>
                 <?php if (count($list_sanpham) == 0) { ?>
                     <tr>
@@ -45,7 +49,7 @@ include '../model/notification.php';
                         <tr>
                             <td><input name="checkbox[]" value=<?= $id ?> type="checkbox"></td>
                             <td><?= $id ?></td>
-                            <td>
+                            <td style="text-align: start">
                                 <?php foreach ($listdanhmuc as $dm) {
                                     if ($dm['id'] == $iddm) {
                                         echo '#' . $iddm . ' - ' . $dm['name'];
@@ -56,7 +60,7 @@ include '../model/notification.php';
                             <td>
                                 <img width="100px" src="<?= $hinh ?>" alt="<?= $hinh ?>">
                             </td>
-                            <td><?= $mota ?></td>
+                            <td style="text-align: start"><?= $mota ?></td>
                             <td><?= $price ?> $</td>
                             <td><?= $luotxem ?></td>
                             <td>
@@ -65,7 +69,7 @@ include '../model/notification.php';
                                         <a href="index.php?act=suasp&id=<?= $id ?>"><i class="fa-solid fa-pen"></i></a>
                                     </button>
                                     <button class="button delete">
-                                        <a onclick="return confirm('Xóa sản phẩm này ?\n[ Các bình luận liên quan cũng sẽ bị xóa ]')" href="index.php?act=xoasp&id=<?= $id ?>"><i class="fa-solid fa-trash"></i></a>
+                                        <a onclick="return confirm(`Xóa các sản phẩm này ?\n\n[ ! ] Việc này cũng sẽ xóa các thông tin liên quan :\n* Thông tin của sản phẩm\n* Bình luận về sản phẩm`)" href="index.php?act=xoasp&id=<?= $id ?>"><i class="fa-solid fa-trash"></i></a>
                                     </button>
                                 </div>
                             </td>
@@ -78,39 +82,7 @@ include '../model/notification.php';
         <div class="row mb10">
             <input type="button" onclick="checkAll()" value="Chọn tất cả" />
             <input type="button" onclick="checkRemoveAll()" value="Bỏ chọn tất cả" />
-            <input class="delete_all" type="submit" name="delete_checkbox" onclick="return confirm(`Xóa các sản phẩm này ?\n[ Các bình luận liên quan cũng sẽ bị xóa ]`)" value="Xóa các mục đã chọn" />
-            <a href="index.php?act=addsp">
-                <input type="button" value="Thêm sản phẩm" />
-            </a>
+            <input class="delete_all" type="submit" name="delete_checkbox" onclick="return confirm(`Xóa các sản phẩm này ?\n\n[ ! ] Việc này cũng sẽ xóa các thông tin liên quan :\n* Thông tin của sản phẩm\n* Bình luận về sản phẩm`)" value="Xóa các mục đã chọn" />
         </div>
     </form>
-
-    <!-- <script>
-        const delete_all = document.querySelector('.delete_all');
-        const checkbox = document.querySelectorAll('input[type="checkbox"]');
-
-        for (let index = 0; index < checkbox.length; index++) {
-            const box = checkbox[index];
-            box.addEventListener('change', () => {
-                box.checked ? delete_all.style.display = "inline-block" :
-                    delete_all.style.display = "none"
-            })
-        }
-
-        function checkAll() {
-            for (let index = 0; index < checkbox.length; index++) {
-                const box = checkbox[index];
-                box.checked = true;
-                delete_all.style.display = "inline-block"
-            }
-        }
-
-        function checkRemoveAll() {
-            for (let index = 0; index < checkbox.length; index++) {
-                const box = checkbox[index];
-                box.checked = false;
-                delete_all.style.display = "none"
-            }
-        }
-    </script> -->
 </div>

@@ -8,20 +8,20 @@
         <form action="index.php?act=updatekh" method="POST">
             <div class="row mb10">
                 <p class="mb10">Mã khách hàng</p>
-                <input type="text" value="AUTO INCREMENT - Tự động tăng" name="makh" id="" value=<?= $kh['id'] ?> disabled>
-                <input type="hidden" name="id" value=<?= $kh['id'] ?>>
+                <input type="text" value="AUTO INCREMENT - Tự động tăng" name="makh" id="" value="<?= $kh['id'] ?>" disabled>
+                <input type="hidden" name="id" value="<?= $kh['id'] ?>">
             </div>
             <div class="row mb10">
                 <p class="mb10">Tài khoản</p>
-                <input type="text" name="tkkh" value=<?= $kh['user'] ?> id="" required>
+                <input type="text" name="tkkh" value="<?= $kh['user'] ?>" id="" disabled>
             </div>
             <div class="row mb10">
                 <p class="mb10">Mật khẩu</p>
-                <input type="password" name="mkkh" value=<?= $kh['pass'] ?> id="" required>
+                <input type="password" name="mkkh" value="<?= $kh['pass'] ?>" id="" required>
             </div>
             <div class="row mb10">
                 <p class="mb10">Email</p>
-                <input type="email" name="email" value=<?= $kh['email'] ?> id="" pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/" required>
+                <input type="email" name="email" value="<?= $kh['email'] ?>" id="" pattern="/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/" required>
             </div>
             <div class="row mb10">
                 <p class="mb10">Địa chỉ</p>
@@ -29,7 +29,7 @@
             </div>
             <div class="row mb10">
                 <p class="mb10">SDT</p>
-                <input type="tel" value=<?= $kh['tel'] ?> pattern="034[0-9]{7,8}" name="sdtkh" id="" required>
+                <input type="tel" value="<?= $kh['tel'] ?>" pattern="034[0-9]{7,8}" name="sdtkh" id="" required>
             </div>
             <div class="row mb10">
                 <p class="mb10">Vai trò</p>

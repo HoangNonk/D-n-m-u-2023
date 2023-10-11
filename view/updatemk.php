@@ -11,12 +11,17 @@
                 </div>
                 <div class="row mb10">
                     <p class="mb10">Mật khẩu mới</p>
-                    <input type="password" name="pass" id="" required>
+                    <input type="password" name="pass" id="" placeholder="Tài khoản phải có ít nhất 8 ký tự" pattern=".{8,}" title="Mật khảu phải có ít nhất 8 ký tự" required>
                 </div>
                 <div class="row mb10">
                     <p class="mb10">Nhập lại mật khẩu</p>
-                    <input type="password" name="repass" id="" required>
+                    <input type="password" name="repass" id="" placeholder="Tài khoản phải có ít nhất 8 ký tự" pattern=".{8,}" title="Mật khảu phải có ít nhất 8 ký tự" required>
                 </div>
+                <?php if (isset($thongbao) && $thongbao != '') { ?>
+                    <div class="row">
+                        <p style="color: red;"><?= $thongbao ?></p>
+                    </div>
+                <?php } ?>
                 <a><input type="submit" name="update" value="Cập nhật"></a>
             </form>
         </div>

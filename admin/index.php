@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['active']) || $_SESSION['active'] != 1) {
-    header('location: ../index.php');
-}
-
 include '../model/pdo.php';
 include '../model/danhmuc.php';
 include '../model/sanpham.php';
@@ -12,30 +8,31 @@ include '../model/khachhang.php';
 include '../model/binhluan.php';
 include '../model/thongke.php';
 
-include 'header.php';
 $list_danhmuc = list_danhmuc('');
+$list_kh = list_kh('');
 $list_sanpham = list_sanpham('', 0);
 $list_top10 = list_top10();
 $list_sanpham_home = list_sanpham_home();
+$thongke = thongke_sp_dm();
+
+if (!isset($_SESSION['active']) || $_SESSION['active'] != 1) {
+    header('location: ../index.php');
+}
+
+include 'header.php';
 
 if (isset($_GET['act']) && $_GET['act'] != '') {
     $act = $_GET['act'];
     switch ($act) {
         case 'thongke':
-            if (isset($_GET['name'])) {
-                $_SESSION['thongke'] = $_GET['name'];
-            }else {
-                $_SESSION['thongke'] = 'danhmuc';
-                $thongke_dm = thongke_dm();
-            }
-            include 'thongke/danhmuc.php';
+            include 'thongke/list.php';
             break;
 
             // DANH MỤC 
         case 'adddm':
             if (isset($_POST['themmoi'])) {
                 add_danhmuc($_POST['tenloai'], '');
-                $_SESSION['add'] = '1';
+                $_SESSION['add'] = 'listdm';
                 header('location: index.php?act=listdm');
             }
             include 'danhmuc/add.php';
@@ -113,7 +110,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 } else {
                     move_uploaded_file($file['tmp_name'], $target_file);
                     add_sanpham($danhmuc, $tensanpham, $giasanpham, $file_name, $mota);
-                    $_SESSION['add'] = '1';
+                    $_SESSION['add'] = 'listsp';
                     header('location: index.php?act=listsp');
                 }
             }
@@ -201,7 +198,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 add_kh($tkkh, $mkkh, $email, $diachikh, $sdtkh, $vaitro);
 
 
-                $_SESSION['add'] = '1';
+                $_SESSION['add'] = 'listkh';
                 header('location: index.php?act=listkh');
             }
             include 'khachhang/add.php';
@@ -227,8 +224,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 if (isset($_POST['delete_checkbox']) && isset($_POST['checkbox'])) {
                     delete_checkbox_kh($_POST['checkbox']);
                     $_SESSION['delete'] = '1';
-                } else {
-                    $_SESSION['checkbox_err'] = '1';
                 }
             }
 
@@ -292,6 +287,18 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             $list_kh = list_kh('');
             $list_bl = list_bl('');
             include 'binhluan/list.php';
+            break;
+
+        case 'info':
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $id = $_GET['id'];
+            }
+            header('location: ../index.php?act=info&id=' . $id);
+            break;
+
+        case 'dangxuat';
+            $_SESSION['logout'] = 1;
+            header('location: ../index.php');
             break;
 
         default:

@@ -6,10 +6,10 @@
             <h1 style="margin-left: 10px">X Shop</h1>
         </div>
         <div class="sign">
-            <?php if (isset($_SESSION['active']) && isset($_SESSION['iduser']) && isset($_SESSION['nameuser'])) {
+            <?php if (isset($_SESSION['active']) && (count($list_kh) > 0)) {
                 if ($_SESSION['active'] == 1) { ?>
                     <a href="admin/index.php"><i class="fa-brands fa-atlassian"></i> Quản trị</a>
-                    <a href="index.php?act=info&id=<?= $_SESSION['iduser'] ?>"><i class="fa-solid fa-user"></i> <?= $_SESSION['nameuser'] ?></a>
+                    <a href="index.php?act=info&id=<?= $_SESSION['iduser'] ?>"><i class="fa-solid fa-user-pen"></i> <?= $_SESSION['nameuser'] ?></a>
                     <a onclick="return confirm('Đăng xuất ?')" href="index.php?act=dangxuat"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a>
                 <?php } else { ?>
                     <a href="#"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>

@@ -552,6 +552,19 @@ h4 {
     padding: 0;
 }
 
+.formds table th:last-child a {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1vw;
+    color: #fff;
+}
+
+.formds table th:last-child:hover a {
+    background-color: white;
+    color: #353535;
+}
+
 .formds table .desc {
     width: 25%;
 }

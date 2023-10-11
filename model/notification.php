@@ -70,11 +70,7 @@
     unset($_SESSION['active']);
     unset($_SESSION['iduser']);
     unset($_SESSION['nameuser']);
-?>
-    <script>
-        alert(`Đăng xuất thành công !`);
-    </script>
-<?php } ?>
+} ?>
 
 <!-------------------------------------------------------------------------------------------->
 <?php if (isset($_SESSION['updateinfo'])) { ?>
@@ -85,33 +81,4 @@
 <?php
     unset($_SESSION['updateinfo']);
 } ?>
-
-<!-------------------------------------------------------------------------------------------->
-<?php if (isset($_SESSION['updatemk'])) { ?>
-    <script>
-        alert(`Cập nhật thành công`);
-        window.location.href = 'index.php?act=info&id=<?= $_SESSION['updatemk'] ?>'
-    </script>
-<?php
-    unset($_SESSION['updatemk']);
-} ?>
-
-<!-------------------------------------------------------------------------------------------->
-<?php if (isset($_SESSION['repass_fail'])) { ?>
-    <script>
-        alert(`Mật khẩu không khớp`);
-        window.location.href = 'index.php?act=info&id=<?= $_SESSION['repass_fail'] ?>'
-    </script>
-<?php
-    unset($_SESSION['repass_fail']);
-} ?>
-
-<!-------------------------------------------------------------------------------------------->
-<?php if (isset($_SESSION['wronginfo'])) {
-    unset($_SESSION['wronginfo']);
-?>
-    <script>
-        alert(`Thông tin sai\n[ ! ] Email / SDT đăng kí không đúng !`);
-    </script>
-<?php } ?>
 

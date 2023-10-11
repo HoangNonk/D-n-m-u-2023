@@ -8,55 +8,35 @@
     <link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="shortcut icon" href="../upload/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <?php if (isset($_SESSION['thongke'])) { ?>
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            google.charts.load('current', {
-                'packages': ['corechart']
-            });
-
-            google.charts.setOnLoadCallback(() => {
-                var data = new google.visualization.DataTable();
-                data.addColumn('string', 'Topping');
-                data.addColumn('number', 'Slices');
-                data.addRows([
-                    <?php foreach ($thongke_dm as $dm) { 
-                        extract($dm);
-                        echo "['$name',$soluong],";
-                    } ?>
-                    ['Khó', 3],
-                    ['Onions', 1],
-                    ['Olives', 1],
-                    ['Zucchini', 1],
-                    ['Pepperoni', 2]
-                ]);
-
-                // Set chart options
-                var options = {
-                    'title': '',
-                    'width': 600,
-                    'height': 600,
-                    is3D: true,
-                };
-
-                // Instantiate and draw our chart, passing in some options.
-                var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-                chart.draw(data, options);
-            })
-        </script>
-
-    <?php } ?>
 </head>
 
 <body>
     <div class="boxcenter">
-        <div class="row mb headeradmin">
-            <img width="80px" src="../upload/logo.png" alt="">
-            <h1 style="margin-left: 10px">Admin</h1>
+        <div class="row mb header">
+            <div class="header_title">
+                <img width="80px" src="../upload/logo.png" alt="">
+                <h1 style="margin-left: 10px">Admin</h1>
+            </div>
+            <div class="sign">
+                <?php if (isset($_SESSION['active']) && (count($list_kh) > 0)) {
+                    if ($_SESSION['active'] == 1) { ?>
+                        <a href="../index.php"><i class="fa-brands fa-atlassian"></i> Khách</a>
+                        <a href="index.php?act=info&id=<?= $_SESSION['iduser'] ?>"><i class="fa-solid fa-user-pen"></i> <?= $_SESSION['nameuser'] ?></a>
+                        <a onclick="return confirm('Đăng xuất ?')" href="index.php?act=dangxuat"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a>
+                    <?php } else { ?>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
+                        <a href="index.php?act=info&id=<?= $_SESSION['iduser'] ?>"><i class="fa-solid fa-user"></i><?= $_SESSION['nameuser'] ?></a>
+                        <a onclick="return confirm('Đăng xuất ?')" href="index.php?act=dangxuat"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a>
+                    <?php } ?>
+                <?php } else { ?>
+                    <a href="../index.php?act=dangnhap"><i class="fa-solid fa-user"></i> Đăng nhập/Đăng ký </a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                <?php } ?>
+
+            </div>
         </div>
         <div class="row mb menu">
             <ul>
-                <li><a href="../index.php">Trang chủ</a></li>
                 <li><a href="index.php?act=listdm">Danh mục</a></li>
                 <li><a href="index.php?act=listsp">Hàng hóa</a></li>
                 <li><a href="index.php?act=listkh">Khách hàng</a></li>
