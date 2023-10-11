@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .leftside,
+        .rightside {
+            padding: 30px;
+            border: 1px solid black;
+            margin: 10px;
+        }
+
+        #err_num,
+        #err_cal {
+            color: red;
+        }
+
+        .boxcal {
+            padding: 30px;
+            border: 1px solid #ccc;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="boxcal" method="" action="">
+        <h1>Bé tập tính website</h1>
+        <div style="display: flex; justify-content: start; align-items: center;">
+            <div class="leftside">
+                <label for="">Nhập số thứ nhất</label>
+                <input type="number" id="number1"><br>
+                <label for="">Nhập số thứ hai</label>
+                <input type="number" id="number2"> <br>
+                <label for="">Kết quả</label>
+                <input type="number" id="result" readonly>
+            </div>
+            <div class="rightside">
+                <input type="radio" id="plus" name="cal" value="plus">Cộng
+                <input type="radio" id="minus" name="cal" value="minus">Trừ <br>
+                <input type="radio" id="times" name="cal" value="times">Nhân
+                <input type="radio" id="devide" name="cal" value="devide">Chia <br>
+                <button type="submit">Tính</button>
+            </div>
+        </div>
+        <p id="err_num"></p>
+        <p id="err_cal"></p>
+    </form>
+
+    <script>
+        const form = document.querySelector('.boxcal')
+        var nb1 = document.getElementById('number1');
+        var nb2 = document.getElementById('number2');
+        var cals = document.querySelectorAll('.rightside input[name="cal"]')
+        var result = document.getElementById('result')
+
+        const err_num = document.getElementById('err_num')
+        const err_cal = document.getElementById('err_cal')
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            if (nb1.value === null || nb1.value == '' && nb2.value === null || nb2.value == '') {
+                err_num.innerHTML = 'Chưa nhập giá trị số !'
+            } else {
+                err_num.innerHTML = '';
+            }
+
+            for (let index = 0; index < cals.length; index++) {
+                const element = cals[index];
+                if (!element.checked){
+                    err_cal.innerHTML = 'Chưa chọn phép tính !'
+                }else {
+                    err_cal.innerHTML = ''
+                    if (element.id == 'plus') {
+                        result_value = Number(nb1.value) + Number(nb2.value)
+                        result.value = result_value
+                    }
+                    if (element.id == 'minus') {
+                        result_value = Number(nb1.value) - Number(nb2.value)
+                        result.value = result_value
+                    }
+                    if (element.id == 'times') {
+                        result_value = Number(nb1.value) * Number(nb2.value)
+                        result.value = result_value
+                    }
+                    if (element.id == 'devide') {
+                        result_value = Number(nb1.value) / Number(nb2.value)
+                        result.value = result_value
+                    }
+                    break;
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>
