@@ -48,7 +48,9 @@
     const videoElement = document.getElementById("video");
 
     window.addEventListener('scroll', function() {
-        videoElement.play();
+        if (window.pageYOffset > 1) {
+            videoElement.play();
+        }
     })
 
     const add_cart = document.querySelectorAll('.btn_pro button i');
