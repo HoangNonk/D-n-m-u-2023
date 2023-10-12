@@ -5,6 +5,15 @@
     transition: 0.3s;
 }
 
+.reset {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.unlist {
+    list-style-type: none;
+}
+
 .mg-0 {
     margin: 0 !important;
 }
@@ -13,6 +22,10 @@
     display: flex;
     align-items: center;
     justify-content: start;
+}
+
+.fl-col {
+    flex-direction: column;
 }
 
 .evenly {
@@ -131,15 +144,6 @@ a {
     margin-right: 5%;
 }
 
-.footer {
-    background-color: aquamarine;
-    border: 1px #090 solid;
-    font-size: 0.8vw;
-    color: blue;
-    border-radius: 5px;
-    padding: 20px;
-}
-
 .header h1 {
     margin: 20px;
     font-size: 1.8vw;
@@ -242,16 +246,6 @@ a {
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
     background-color: #eee;
-}
-
-.boxfooter {
-    padding: 10px;
-    background-color: #eee;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
 }
 
 .banner {
@@ -461,7 +455,7 @@ h4 {
     /* border-radius: 5px; */
     border: 1px #ccc solid;
     color: white;
-    background: rgba(53, 53, 53, 0.8);
+    background: rgba(53, 53, 53, 0.90);
     padding: 1.5% 3%;
 }
 
@@ -560,6 +554,58 @@ h4 {
 
 .headeradmin h1 {
     font-size: 2vw;
+}
+
+#footer {
+    margin-top: 5%;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    height: fit-content;
+    padding: 5% 2%;
+}
+
+#footer form {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border: 1px solid #ccc;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+#footer form input,
+#footer form button {
+    padding: 5px 10px;
+}
+
+#footer form button {
+    background-color: rgba(53, 53, 53, 0.95);
+    color: #fff;
+    border: 1px solid rgba(53, 53, 53, 0.95);
+}
+
+#footer form button:hover {
+    background-color: rgba(53, 53, 53, 0.7);
+}
+
+.list_footer ul {
+    padding-left: 0 !important;
+    align-self: start;
+}
+
+.list_footer ul li{
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.list_footer ul li i {
+    margin-right: 5px;
+    /* display: none; */
+}
+
+#footer label {
+    font-size: 1vw;
+    font-weight: 500;
+    font-style: italic;
 }
 
 .formtitle {
@@ -778,4 +824,60 @@ a .signin {
 
 a .signin:hover {
     background-color: rgba(53, 53, 53, 0.6);
+}
+
+#myChart {
+    height: 500px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    color: #ccc;
+}
+
+.selectchart {
+    padding-left: 0 !important;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    list-style-type: none;
+    column-gap: 10px;
+}
+
+.selectchart li {
+    background-color: rgba(53, 53, 53, 0.9);
+    height: 50px;
+    line-height: 50px;
+    border-radius: 5px;
+}
+.selectchart li:hover {
+    background-color: rgba(53, 53, 53, 0.7);
+    transform: translateY(-3px);
+}
+
+.selectchart li:active {
+    transform: translateY(3px);
+}
+
+.selectchart li a{
+    color: #fff;
+    padding: 10px;
+    height: 100%;
+}
+
+.tool {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.tool li {
+    border: 1px solid #353535;
+    padding: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool li i {
+    font-size: 2vw;
 }

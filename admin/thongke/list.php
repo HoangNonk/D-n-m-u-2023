@@ -27,8 +27,9 @@ include '../model/notification.php';
                             <?php foreach ($list_sanpham as $sp) {
                                 if ($gia_min == $sp['price']) {
                             ?>
-                                <?= '#'. $sp['id'] .' - '. $sp['name'] . ' - ' ?>
-                                <?php break; } ?>
+                                    <?= '#' . $sp['id'] . ' - ' . $sp['name'] . ' - ' ?>
+                                <?php break;
+                                } ?>
                             <?php } ?>
                             <?= $gia_min ?> $
                         </td>
@@ -36,20 +37,21 @@ include '../model/notification.php';
                             <?php foreach ($list_sanpham as $sp) {
                                 if ($gia_max == $sp['price']) {
                             ?>
-                                <?= '#'. $sp['id'] .' - '. $sp['name'] . ' - ' ?>
-                                <?php break; } ?>
+                                    <?= '#' . $sp['id'] . ' - ' . $sp['name'] . ' - ' ?>
+                                <?php break;
+                                } ?>
                             <?php } ?>
                             <?= $gia_max ?> $
                         </td>
-                        
+
                         <td><?= $gia_avg ?> $</td>
                     </tr>
                 <?php } ?>
             </table>
         </div>
         <div class="row mb10">
-            <a href="admin/thongke/bieudo.php">
-                <input type="button" value="Biểu đồ thống kê" />
+            <a href="index.php?act=bieudo">
+                <input type="button" value="Biểu đồ chi tiết" />
             </a>
         </div>
     </form>

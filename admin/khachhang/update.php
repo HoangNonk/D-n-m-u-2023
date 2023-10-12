@@ -13,7 +13,8 @@
             </div>
             <div class="row mb10">
                 <p class="mb10">Tài khoản</p>
-                <input type="text" name="tkkh" value="<?= $kh['user'] ?>" id="" disabled>
+                <input type="text" name="" value="<?= $kh['user'] ?>" id="" disabled>
+                <input type="hidden" name="tkkh" value="<?= $kh['user'] ?>" id="">
             </div>
             <div class="row mb10">
                 <p class="mb10">Mật khẩu</p>
@@ -39,6 +40,11 @@
                     <option value="2" <?= $kh['role'] == 2 ? 'selected' : ''?>>Khách hàng</option>
                 </select>
             </div>
+            <?php if (isset($thongbao) && $thongbao != '') { ?>
+                    <div class="row">
+                        <p style="color: red;"><?= $thongbao ?></p>
+                    </div>
+                <?php } ?>
             <div class="row mb10">
                 <input type="submit" name="update" value="Cập nhật">
                 <input type="reset" value="Nhập lại">

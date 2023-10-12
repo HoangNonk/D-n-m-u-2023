@@ -23,12 +23,12 @@ include '../model/notification.php';
                         </a>
                     </th>
                 </tr>
-                <?php if (count($listdanhmuc) == 0) { ?>
+                <?php if (count($list_danhmuc) == 0) { ?>
                     <tr>
                         <td style="text-align:center" colspan="5">Chưa có danh mục sản phẩm nào</td>
                     </tr>
                     <?php } else {
-                    foreach ($listdanhmuc as $dm) {
+                    foreach ($list_danhmuc as $dm) {
                         extract($dm);
                         $suadm = "index.php?act=suadm&id=" . $id;
                         $xoadm = "index.php?act=xoadm&id=" . $id;

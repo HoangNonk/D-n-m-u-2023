@@ -18,7 +18,7 @@
     }
 
     function list_sanpham_home() {
-        $sql = "SELECT * FROM sanpham where 1 order by id desc limit 0,4";
+        $sql = "SELECT * FROM sanpham where 1 order by id desc limit 0,8";
         return pdo_query($sql);
     }
 
@@ -28,7 +28,7 @@
     }
 
     function list_top(){
-        $sql="SELECT * from sanpham where 1 order by luotxem desc limit 0,4";
+        $sql="SELECT * from sanpham where 1 order by luotxem desc limit 0,8";
         return pdo_query($sql);
     }
 

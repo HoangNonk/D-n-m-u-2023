@@ -1,5 +1,5 @@
-<?php 
-    include '../model/notification.php';
+<?php
+include '../model/notification.php';
 ?>
 
 <div class="row">
@@ -40,16 +40,16 @@
                     <option value="2">Khách hàng</option>
                 </select>
             </div>
+            <?php if (isset($thongbao) && $thongbao != '') { ?>
+                <div class="row">
+                    <p style="color: red;"><?= $thongbao ?></p>
+                </div>
+            <?php } ?>
             <div class="row mb10">
                 <input type="submit" name="themmoi" value="Thêm mới">
                 <input type="reset" value="Nhập lại">
                 <a href="index.php?act=listkh"><input type="button" value="Danh sách"></a>
             </div>
-            <?php
-            if (isset($thongbao) && $thongbao != '') {
-                echo $thongbao;
-            }
-            ?>
         </form>
     </div>
 </div>

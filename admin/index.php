@@ -28,6 +28,25 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             include 'thongke/list.php';
             break;
 
+        case 'bieudo':
+            if (isset($_GET['chart']) && $_GET['chart'] != '') {
+                $chart = $_GET['chart'];
+                if ($chart == 'gia_min') {
+                    include 'thongke/chart/gia_min.php';
+                    include 'thongke/bieudo.php';
+                } else if ($chart == 'gia_max') {
+                    include 'thongke/chart/gia_max.php';
+                    include 'thongke/bieudo.php';
+                } else {
+                    include 'thongke/chart/soluong.php';
+                    include 'thongke/bieudo.php';
+                }
+            } else {
+                include 'thongke/chart/soluong.php';
+                include 'thongke/bieudo.php';
+            }
+            break;
+
             // DANH MỤC 
         case 'adddm':
             if (isset($_POST['themmoi'])) {
@@ -195,11 +214,30 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $diachikh = isset($_POST['diachikh']) ? $_POST['diachikh'] : '';
                 $sdtkh = $_POST['sdtkh'];
                 $vaitro = $_POST['vaitro'];
-                add_kh($tkkh, $mkkh, $email, $diachikh, $sdtkh, $vaitro);
 
+                $same = 0;
+                foreach ($list_kh as $kh) {
+                    if ($tkkh == $kh['user']) {
+                        $same = 1;
+                        $thongbao = 'Tài khoản đăng ký đã tồn tại !';
+                    }
 
-                $_SESSION['add'] = 'listkh';
-                header('location: index.php?act=listkh');
+                    if ($sdtkh == $kh['tel']) {
+                        $same = 1;
+                        $thongbao = 'SDT đăng ký đã tồn tại !';
+                    }
+
+                    if ($email == $kh['email']) {
+                        $same = 1;
+                        $thongbao = 'Email đăng ký đã tồn tại !';
+                    }
+                }
+
+                if ($same == 0) {
+                    add_kh($tkkh, $mkkh, $email, $diachikh, $sdtkh, $vaitro);
+                    header('location: index.php?act=listkh');
+                    $_SESSION['add'] = 'listkh';
+                }
             }
             include 'khachhang/add.php';
             break;
@@ -302,11 +340,11 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             break;
 
         default:
-            include 'home.php';
+            include 'danhmuc/list.php';
             break;
     }
 } else {
-    include 'home.php';
+    include 'danhmuc/list.php';
 }
 
 include 'footer.php';
