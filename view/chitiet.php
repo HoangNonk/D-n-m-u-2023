@@ -3,9 +3,9 @@
         <div class="info_pro">
             <div class="detail_pro">
                 <h3><?= $sp['name'] ?><br><span><?= $sp['price'] ?> $</span></h3>
-                <p>Lượt xem: <?= $sp['luotxem'] += 1 ?></p>
-                <p>Mã sản phẩm: #<?= $sp['id'] ?></p>
-                <p>Danh mục của sản phẩm: <?php foreach ($list_danhmuc as $dm) {
+                <p><i class="fa-solid fa-eye"></i> Lượt xem: <?= $sp['luotxem'] += 1 ?></p>
+                <p><i class="fa-solid fa-hashtag"></i> Mã sản phẩm: #<?= $sp['id'] ?></p>
+                <p><i class="fa-solid fa-layer-group"></i> Danh mục của sản phẩm: <?php foreach ($list_danhmuc as $dm) {
                                                 if ($dm['id'] == $sp['iddm']) {
                                                     echo $dm['name'];
                                                 }
@@ -16,7 +16,7 @@
 
         </div>
         <div class="desc">
-            <h5>Mô tả chi tiết</h5>
+            <h5><i class="fa-solid fa-asterisk"></i> Mô tả chi tiết</h5>
             <p><?= $sp['mota'] ?></p>
         </div>
     </div>

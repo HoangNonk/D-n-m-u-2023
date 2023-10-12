@@ -252,9 +252,20 @@ a {
     height: 50vh;
     width: 100%;
     text-align: center;
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .banner img {
+    height: 100%;
+    width: 100%;
+}
+
+#video {
+    display: block;
     height: 100%;
     width: 100%;
 }
@@ -863,21 +874,4 @@ a .signin:hover {
     color: #fff;
     padding: 10px;
     height: 100%;
-}
-
-.tool {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-}
-
-.tool li {
-    border: 1px solid #353535;
-    padding: 10%;
-    align-items: center;
-    justify-content: center;
-}
-
-.tool li i {
-    font-size: 2vw;
 }
