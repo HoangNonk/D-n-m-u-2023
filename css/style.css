@@ -249,7 +249,7 @@ a {
 }
 
 .banner {
-    height: 50vh;
+    height: 500px;
     width: 100%;
     text-align: center;
     position: relative;
@@ -257,11 +257,6 @@ a {
     margin: auto;
     display: flex;
     justify-content: center;
-}
-
-.banner img {
-    height: 100%;
-    width: 100%;
 }
 
 #video {

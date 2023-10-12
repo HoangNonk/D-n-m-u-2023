@@ -5,23 +5,27 @@
             <img width="80px" src="upload/logo.png" alt="">
             <h3>X Shop</h3>
             <p style="font-style:italic; text-align: center">X Shop là cửa hàng chuyển phân phối và bảo hành các sản phẩm chính hãng từ Apple <br> Chuyên cung cấp các linh kiện airpod, iphone chính hãng và mới nhất , ...
-        </p>
+            </p>
         </div>
         <div class="row flex between list_footer">
-            <ul><h4>Liên hệ</h4>
+            <ul>
+                <h4>Liên hệ</h4>
                 <li><i class="fa-solid fa-location-dot"></i> 141 Trần Phú, Hà Đông, Hà Nội</li>
                 <li><i class="fa-solid fa-mobile-screen"></i> 034 654 0479</li>
                 <li><i class="fa-solid fa-at"></i> Longlhph31572@gmail.com</li>
                 <li><i class="fa-brands fa-facebook"></i> fb/hoanglong.luong.7777 </li>
             </ul>
-            <ul><h4>Chính sách</h4>
+            <ul>
+                <h4>Chính sách</h4>
                 <li><i class="fa-solid fa-truck"></i> Giao hàng </li>
                 <li><i class="fa-brands fa-shopify"></i> Đặt hàng</li>
                 <li><i class="fa-solid fa-rotate-left"></i> Đổi trả</li>
                 <li><i class="fa-solid fa-screwdriver-wrench"></i> Bảo hành</li>
             </ul>
-            <ul><h4 style="cursor:pointer" onclick="return window.location.href='index.php?act=sanpham'">Sản phẩm</h4>
-                <?php foreach ($list_danhmuc as $dm) { extract($dm) ?>
+            <ul>
+                <h4 style="cursor:pointer" onclick="return window.location.href='index.php?act=sanpham'">Sản phẩm</h4>
+                <?php foreach ($list_danhmuc as $dm) {
+                    extract($dm) ?>
                     <li><a style="" href="index.php?act=sanpham&iddm=<?= $id ?>"><?= $name ?></a></li>
                 <?php } ?>
             </ul>
@@ -40,6 +44,12 @@
 
 <script>
     const comment = document.getElementById('boxcomment')
+
+    const videoElement = document.getElementById("video");
+
+    window.addEventListener('scroll', function() {
+        videoElement.play();
+    })
 
     const add_cart = document.querySelectorAll('.btn_pro button i');
     console.log(add_cart);

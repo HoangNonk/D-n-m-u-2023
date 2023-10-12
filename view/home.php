@@ -1,9 +1,8 @@
 <?php include 'view/controluser.php'; ?>
 <div class="row mb">
-    <div class="row mb10">
-        <div class="banner mb10">
-            <!-- <img src="upload/banner (1).png" alt=""> -->
-            <video id="video" controls autoplay loop>
+    <div class="row">
+        <div class="banner">
+            <video id="video" autoplay loop>
                 <source src="video/video1.mp4" type="video/mp4">
             </video>
         </div>
