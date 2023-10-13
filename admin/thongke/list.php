@@ -2,9 +2,7 @@
 include '../model/notification.php';
 ?>
 <div class="row">
-    <div class="row formtitle mb10">
-        <h1>BẢNG THỐNG KÊ</h1>
-    </div>
+    <h4 class="title_cate">Bảng thống kê</h4>
     <form action="index.php?act=xoasp" method="POST" class="row formcontent">
         <div class="row mb10 formds">
             <table>

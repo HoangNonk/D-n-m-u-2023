@@ -1,8 +1,8 @@
 
 
 <div class="row">
-    <div class="row formtitle">
-        <h1>SỬA THÔNG TIN TÀI KHOẢN #<?= $kh['id'] ?></h1>
+<div class="row">
+        <h4 class="title_cate">SỬA THÔNG TIN KHÁCH HÀNG #<?= $kh['id'] ?></h4>
     </div>
     <div class="row formcontent">
         <form action="index.php?act=updatekh" method="POST">

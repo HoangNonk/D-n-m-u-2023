@@ -1,3 +1,6 @@
+<div class="row">
+    <h4 class="title_cate">BIỂU ĐỒ THỐNG KÊ</h4>
+</div>
 <div id="myChart"></div>
 <div class="row chart">
     <script src="https://www.gstatic.com/charts/loader.js"></script>

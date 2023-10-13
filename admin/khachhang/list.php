@@ -3,8 +3,8 @@ include '../model/notification.php';
 ?>
 
 <div class="row">
-    <div class="row formtitle mb10">
-        <h1 class="">DANH SÁCH KHÁCH HÀNG</h1>
+<div class="row">
+        <h4 class="title_cate">DANH SÁCH KHÁCH HÀNG</h4>
     </div>
     <form action="index.php?act=listkh" method="POST" class="row formsearch">
         <input id="search" type="text" name="kyw" placeholder="Nhập thông tin tài khoản">

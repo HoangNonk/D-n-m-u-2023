@@ -2,8 +2,8 @@
 include '../model/notification.php';
 ?>
 <div class="row">
-    <div class="row formtitle mb10">
-        <h1>DANH SÁCH DANH MỤC</h1>
+    <div class="row">
+        <h4 class="title_cate">DANH SÁCH DANH MỤC</h4>
     </div>
     <form action="index.php?act=listdm" method="POST" class="row formsearch">
         <input id="search" type="text" name="kyw" placeholder="Nhập thông tin danh muc">

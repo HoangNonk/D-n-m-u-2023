@@ -2,8 +2,8 @@
 include '../model/notification.php';
 ?>
 <div class="row">
-    <div class="row formtitle mb10">
-        <h1>DANH SÁCH BÌNH LUẬN</h1>
+    <div class="row">
+        <h4 class="title_cate">DANH SÁCH BÌNH LUẬN</h4>
     </div>
     <form action="index.php?act=listbl" method="POST" class="row formsearch">
         <input id="search" type="text" name="kyw" placeholder="Nhập thông tin bình luận">

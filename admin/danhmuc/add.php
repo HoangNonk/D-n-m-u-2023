@@ -1,7 +1,7 @@
 
 <div class="row">
-    <div class="row formtitle">
-        <h1>THÊM MỚI DANH MỤC</h1>
+    <div class="row">
+        <h4 class="title_cate">THÊM MỚI DANH MỤC</h4>
     </div>
     <div class="row formcontent">
         <form action="index.php?act=adddm" method="POST">

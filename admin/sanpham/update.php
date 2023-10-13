@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="row formtitle">
-        <h1>SỬA THÔNG TIN SẢN PHẨM #<?= $sp['id'] ?></h1>
+    <div class="row">
+        <h4 class="title_cate">SỬA THÔNG TIN SẢN PHẨM #<?= $sp['id'] ?></h4>
     </div>
     <div class="row formcontent">
         <form action="index.php?act=updatesp" enctype="multipart/form-data" method="POST">
@@ -15,7 +15,7 @@
                     <?php foreach ($listdanhmuc as $dm) {
                         extract($dm);
                     ?>
-                        <option value=<?= $id ?> <?= $id === $sp['iddm'] ? "selected" : ''; ?> ><?= $name ?></option>
+                        <option value=<?= $id ?> <?= $id === $sp['iddm'] ? "selected" : ''; ?>><?= $name ?></option>
                     <?php } ?>
                 </select>
             </div>

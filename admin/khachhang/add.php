@@ -3,8 +3,8 @@ include '../model/notification.php';
 ?>
 
 <div class="row">
-    <div class="row formtitle">
-        <h1>THÊM MỚI TÀI KHOẢN</h1>
+    <div class="row">
+        <h4 class="title_cate">THÊM MỚI TÀI KHOẢN</h4>
     </div>
     <div class="row formcontent">
         <form action="index.php?act=addkh" method="POST">
