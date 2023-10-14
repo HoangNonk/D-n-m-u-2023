@@ -10,7 +10,7 @@
                                                     echo $dm['name'];
                                                 }
                                             } ?></p>
-                <button>Thêm vào giỏ hàng <i style="font-size:1.2vw" class="fa-solid fa-cart-arrow-down"></i></button>
+                <button onclick="sendProductID(<?= $sp['id'] ?>)">Thêm vào giỏ hàng <i style="font-size:1.2vw" class="fa-solid fa-cart-arrow-down"></i></button>
             </div>
             <img src="upload/<?= $sp['img'] ?>" alt="">
 

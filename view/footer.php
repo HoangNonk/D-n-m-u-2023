@@ -54,16 +54,15 @@
     })
 
     const add_cart = document.querySelectorAll('.btn_pro button i');
-    console.log(add_cart);
+
     for (let index = 0; index < add_cart.length; index++) {
         const element = add_cart[index];
         element.parentElement.addEventListener('click', () => {
-            console.log('click');
             element.classList.add('jumpmove');
             setTimeout(() => {
-                alert('Thêm vào giỏ hàng thành công')
                 element.classList.remove('jumpmove');
-            }, 2500)
+                // alert('Thêm vào giỏ hàng thành công')
+            }, 2000)
         })
     }
 </script>
@@ -77,12 +76,29 @@
     var sticky = navbar.offsetTop;
 
     function myFunction() {
-        if (window.pageYOffset >= 30) {
+        if (window.pageYOffset >= 5) {
             navbar.classList.add("sticky")
         } else {
             navbar.classList.remove("sticky");
         }
     }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+function sendProductID(productId) {
+    $.ajax({
+        type: "POST",
+        url: "index.php?act=giohang",  // Điều này là URL của tệp PHP bạn muốn sử dụng để xử lý yêu cầu
+        data: {product_id: productId}, // Gửi id sản phẩm lên server
+        success: function(response) {
+            // Xử lý phản hồi từ server (nếu cần)
+            setTimeout(() => {
+                alert('Thêm vào giỏ hàng thành công')
+            }, 1000)
+        }
+    });
+}
 </script>
 
 </html>

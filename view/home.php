@@ -14,7 +14,7 @@
         <?php foreach ($list_sanpham_home as $sp) {
             extract($sp);
         ?>
-            <div class="boxproducts">
+            <div class="boxproducts mb10">
                 <div onclick="return window.location.href = 'index.php?act=chitiet&detail=<?= $id ?>'">
                     <div class="row img">
                         <img src="upload/<?= $img ?>" alt="">
@@ -27,7 +27,7 @@
                 <div class="row info_add">
                     <p><i class="fa-solid fa-eye"></i><?= ' ' . $luotxem ?></p>
                     <div class="btn_pro">
-                        <button class=""><i style="font-size:1.2vw" class="fa-solid fa-cart-arrow-down"></i></button>
+                        <button onclick="sendProductID(<?= $id ?>)"><i style="font-size:1.2vw" class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
         <?php foreach ($list_top as $sp) {
             extract($sp);
         ?>
-            <div class="boxproducts">
+            <div class="boxproducts mb10">
                 <div onclick="return window.location.href = 'index.php?act=chitiet&detail=<?= $id ?>'">
                     <div class="row img">
                         <img src="upload/<?= $img ?>" alt="">
@@ -54,7 +54,7 @@
                 <div class="row info_add">
                     <p><i class="fa-solid fa-eye"></i><?= ' ' . $luotxem ?></p>
                     <div class="btn_pro">
-                        <button class=""><i style="font-size:1.2vw" class="fa-solid fa-cart-arrow-down"></i></button>
+                        <button onclick="sendProductID(<?= $id ?>)"><i style="font-size:1.2vw" class="fa-solid fa-cart-arrow-down"></i></button>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,6 @@
 const delete_all = document.querySelector('.delete_all');
 const checkbox = document.querySelectorAll('input[type="checkbox"]');
-
 const add_to_cart = document.querySelector('.btn_pro button');
-console.log(add_to_cart);
 
 for (let index = 0; index < checkbox.length; index++) {
     const box = checkbox[index];

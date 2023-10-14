@@ -5,6 +5,7 @@ include 'model/sanpham.php';
 include 'model/danhmuc.php';
 include 'model/binhluan.php';
 include 'model/khachhang.php';
+include 'model/giohang.php';
 
 $list_danhmuc = list_danhmuc('');
 $list_sanpham = list_sanpham('', 0);
@@ -12,12 +13,46 @@ $list_sanpham_home = list_sanpham_home();
 $list_kh = list_kh('');
 $list_top = list_top();
 
+if (isset($_SESSION['iduser'])) {
+    $giohang = list_giohang($_SESSION['iduser']);
+}
+
 include 'view/header.php';
 
 if (isset($_GET['act']) && $_GET['act'] != '') {
     $act = $_GET['act'];
 
     switch ($act) {
+        case 'giohang':
+            if (isset($_POST['product_id'])) {
+                $idpro = $_POST['product_id'];
+
+                $same = 0;
+                foreach ($giohang as $row) {
+                    if ($idpro == $row['idpro']) {
+                        $sl = $row['soluong'] + 1;
+                        $same = 1;
+                        update_soluong($sl,$idpro);
+                        break;
+                    }
+                }
+
+                if ($same == 0) {
+                    $_SESSION['idpro'] = $idpro;
+                    $sp = edit_sanpham($idpro);
+                    $iduser = $_SESSION['iduser'];
+                    $tensp = $sp['name'];
+                    $anhsp = $sp['img'];
+                    $gia = $sp['price'];
+                    $soluong = $soluong + 1;
+                    them_vao_giohang($iduser, $idpro, $tensp, $anhsp, $gia, $sl);
+                }
+            }
+            $giohang = list_giohang($_SESSION['iduser']);
+            include 'view/controluser.php';
+            include 'view/giohang.php';
+            break;
+
         case 'dangnhap':
             if (isset($_POST['dangnhap'])) {
                 if (count($list_kh) > 0) {

@@ -10,12 +10,11 @@
                 <a href="index.php?act=info&id=<?= $_SESSION['iduser'] ?>"><i class="fa-solid fa-user-pen"></i> <?= $_SESSION['nameuser'] ?></a>
                 <a onclick="return confirm('Đăng xuất ?')" href="index.php?act=dangxuat"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a>
             <?php } else { ?>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
+                <a href="index.php?act=giohang"><i class="fa-solid fa-cart-shopping"></i> Giỏ hàng</a>
                 <a href="index.php?act=info&id=<?= $_SESSION['iduser'] ?>"><i class="fa-solid fa-user"></i> <?= $_SESSION['nameuser'] ?></a>
                 <a onclick="return confirm('Đăng xuất ?')" href="index.php?act=dangxuat"><i class="fa-solid fa-arrow-right-from-bracket"></i> Đăng xuất</a>
             <?php } ?>
         <?php } else { ?>
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
             <a href="index.php?act=dangnhap"><i class="fa-solid fa-user"></i> Đăng nhập/Đăng ký </a>
         <?php } ?>
 

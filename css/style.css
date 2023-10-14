@@ -30,6 +30,10 @@ body {
     justify-content: start;
 }
 
+.center {
+    justify-content: center;
+}
+
 .fl-col {
     flex-direction: column;
 }
@@ -163,6 +167,7 @@ a {
     background-color: white;
     border-bottom: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(53, 53, 53, 0.9);
+    transition: 0.5s ease;
 }
 
 .sticky a,
@@ -467,6 +472,7 @@ h4 {
     color: white;
     background: rgba(53, 53, 53, 0.90);
     padding: 1.5% 3%;
+    border-radius: 5px;
 }
 
 .formtaikhoan input[type="submit"] {
@@ -671,6 +677,7 @@ h4 {
     width: fit-content;
     height: fit-content;
     height: 50px;
+    border-radius: 5px;
 }
 
 .button a {
@@ -704,6 +711,7 @@ h4 {
 .formsearch select {
     border: 1px solid rgba(53, 53, 53, 0.6);
     padding: 1% 3%;
+    border-radius: 5px;
 }
 
 .formsearch button {
@@ -711,6 +719,7 @@ h4 {
     color: #fff;
     background-color: rgba(53, 53, 53, 0.8);
     border: 2px solid rgba(53, 53, 53, 0.01);
+    border-radius: 5px;
 }
 
 .formsearch button:hover {
@@ -849,4 +858,12 @@ a .signin:hover {
     color: #fff;
     padding: 10px;
     height: 100%;
+}
+
+.radius_btn {
+    border-radius: 5px;
+}
+
+#cart {
+    height: 80vh;
 }

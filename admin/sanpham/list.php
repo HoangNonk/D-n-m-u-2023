@@ -2,11 +2,10 @@
 include '../model/notification.php';
 ?>
 <div class="row">
-<div class="row">
+    <div class="row">
         <h4 class="title_cate">DANH SÁCH SẢN PHẨM</h4>
     </div>
     <form action="index.php?act=listsp" method="POST" class="row formsearch">
-        <input id="search" type="text" name="kyw" placeholder="Nhập thông tin sản phẩm">
         <select name="iddm" id="">
             <option value="" selected>Danh mục</option>
             <?php foreach ($listdanhmuc as $dm) {
@@ -15,6 +14,7 @@ include '../model/notification.php';
                 <option value=<?= $id ?>><?= $name ?></option>
             <?php } ?>
         </select>
+        <input id="search" type="text" name="kyw" placeholder="Nhập thông tin sản phẩm">
         <button type="submit" name="search"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
     <form action="index.php?act=xoasp" method="POST" class="row formcontent">

@@ -50,9 +50,20 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             // DANH MỤC 
         case 'adddm':
             if (isset($_POST['themmoi'])) {
-                add_danhmuc($_POST['tenloai'], '');
-                $_SESSION['add'] = 'listdm';
-                header('location: index.php?act=listdm');
+                $ten = $_POST['tenloai'];
+                $same = 0;
+                foreach ($list_danhmuc as $dm) {
+                    if ($ten == $dm['name']) {
+                        $thongbao = 'Tên danh mục đã tồn tại !';
+                        $same = 1;
+                    }
+                }
+
+                if ($same) {
+                    add_danhmuc($_POST['tenloai'], '');
+                    $_SESSION['add'] = 'listdm';
+                    header('location: index.php?act=listdm');
+                }
             }
             include 'danhmuc/add.php';
             break;
@@ -63,7 +74,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             } else {
                 $kyw = '';
             }
-            $listdanhmuc = list_danhmuc($kyw);
+            $list_danhmuc = list_danhmuc($kyw);
             include 'danhmuc/list.php';
             break;
 

@@ -1,3 +1,8 @@
+<?php if (isset($_SESSION['pro_id'])) {
+        $id_pro[] = $_SESSION['pro_id'];
+        unset($_SESSION['pro_id']);
+        var_dump($id_pro);
+    } ?>
 <div class="row mb">
     <?php if (isset($search_result) && $search_result != '') {
         if (count($list_sanpham) == 0) { ?>
@@ -10,17 +15,16 @@
         <h3 class="title_cate"><?= $ten_dm ?></h3>
     <?php } ?>
 
-
     <div class="row products">
         <?php if (count($list_sanpham) == 0) { ?>
-            <div class="row boxproducts">
-                <h4>Chưa có sản phẩm nào</h4>
+            <div class="row flex">
+                <p>Chưa có sản phẩm nào.</p>
             </div>
             <?php } else {
             foreach ($list_sanpham as $sp) {
                 extract($sp);
             ?>
-                <div class="boxproducts">
+                <div class="boxproducts mb10">
                     <div onclick="return window.location.href = 'index.php?act=chitiet&detail=<?= $id ?>'">
                         <div class="row img">
                             <img src="upload/<?= $img ?>" alt="">
@@ -33,7 +37,7 @@
                     <div class="row info_add">
                         <p><i class="fa-solid fa-eye"></i><?= ' ' . $luotxem ?></p>
                         <div class="btn_pro">
-                            <button class=""><i style="font-size:1.2vw" class="fa-solid fa-cart-arrow-down"></i></button>
+                            <button class="" onclick="sendProductID(<?= $id ?>)"><i style="font-size:1.2vw" class="fa-solid fa-cart-arrow-down"></i></button>
                         </div>
                     </div>
                 </div>

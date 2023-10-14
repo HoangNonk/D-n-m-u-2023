@@ -32,7 +32,7 @@
             };
 
             // Draw
-            const chart = new google.visualization.BarChart(document.getElementById('myChart'));
+            const chart = new google.visualization.ColumnChart(document.getElementById('myChart'));
             chart.draw(data, options);
         }
     </script>
