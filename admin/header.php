@@ -32,18 +32,20 @@
 
         </div>
     </div>
-    <div class="row mb menu flex between boxcenter">
-        <ul class="flex row controladmin">
-            <li>
-                <a href="index.php">
-                    <img width="30px" src="../upload/logo.png" alt="">
-                </a>
-            </li>
-            <li><a href="index.php?act=listdm">Danh mục</a></li>
-            <li><a href="index.php?act=listsp">Hàng hóa</a></li>
-            <li><a href="index.php?act=listkh">Khách hàng</a></li>
-            <li><a href="index.php?act=listbl">Bình luận</a></li>
-            <li><a href="index.php?act=thongke">Thống kê</a></li>
-        </ul>
+    <div id="navbar" class="row mb menu">
+        <div class="flex between boxcenter">
+            <ul class="flex row controladmin">
+                <li>
+                    <a href="index.php">
+                        <img width="30px" src="../upload/logo.png" alt="">
+                    </a>
+                </li>
+                <li><a href="index.php?act=listdm">Danh mục</a></li>
+                <li><a href="index.php?act=listsp">Hàng hóa</a></li>
+                <li><a href="index.php?act=listkh">Khách hàng</a></li>
+                <li><a href="index.php?act=listbl">Bình luận</a></li>
+                <li><a href="index.php?act=thongke">Thống kê</a></li>
+            </ul>
+        </div>
     </div>
     <div class="boxcenter">
