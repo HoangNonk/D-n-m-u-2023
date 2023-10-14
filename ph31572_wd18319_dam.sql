@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2023 at 12:39 PM
+-- Generation Time: Oct 14, 2023 at 05:23 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `longlhph31572_wd18319_dam`
+-- Database: `ph31572_wd18319_dam`
 --
 
 -- --------------------------------------------------------
@@ -65,6 +65,36 @@ INSERT INTO `danhmuc` (`id`, `name`) VALUES
 (151, 'Mac'),
 (152, 'AirPods'),
 (153, 'Phụ kiện');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `giohang`
+--
+
+CREATE TABLE `giohang` (
+  `id` int(10) NOT NULL,
+  `iduser` int(11) NOT NULL,
+  `idpro` int(10) NOT NULL,
+  `tensp` varchar(255) NOT NULL,
+  `anhsp` varchar(255) NOT NULL,
+  `dongia` int(10) NOT NULL,
+  `soluong` int(2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `giohang`
+--
+
+INSERT INTO `giohang` (`id`, `iduser`, `idpro`, `tensp`, `anhsp`, `dongia`, `soluong`) VALUES
+(34, 55, 96, 'iPad Pro 12.9 inch', '', 1099, 0),
+(35, 55, 110, 'Bộ sạc MagSafe', '', 51, 2),
+(36, 55, 109, 'Ốp trong suốt MagSafe', '', 55, 6),
+(37, 55, 111, 'Dây đồng hồ Nike', 'MTL53.png', 60, 2),
+(38, 55, 111, 'Dây đồng hồ Nike', 'MTL53.png', 60, 2),
+(39, 55, 108, 'Ốp lưng MagSafe', 'MT4J3.png', 69, 0),
+(40, 55, 107, 'AirPod Max', 'airpods-max-select-pink-202011.png', 549, 0),
+(41, 55, 89, 'Iphone 13', 'iphone13-digitalmat-gallery-3-202203.png', 599, 0);
 
 -- --------------------------------------------------------
 
@@ -156,6 +186,12 @@ ALTER TABLE `danhmuc`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `giohang`
+--
+ALTER TABLE `giohang`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sanpham`
 --
 ALTER TABLE `sanpham`
@@ -183,6 +219,12 @@ ALTER TABLE `binhluan`
 --
 ALTER TABLE `danhmuc`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=154;
+
+--
+-- AUTO_INCREMENT for table `giohang`
+--
+ALTER TABLE `giohang`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `sanpham`
