@@ -48,7 +48,7 @@ include '../model/notification.php';
                             </td>
                             <td><?= $id ?></td>
                             <td>
-                                <img width="60px" src="../upload/<?= $img ?>" alt="">
+                                <img width="60px" src="../upload/<?= $img ?>" alt=""><br>
                                 <?= $user ?>
                             </td>
                             <td><?= $pass ?></td>
