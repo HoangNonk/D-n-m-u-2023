@@ -1,13 +1,17 @@
-
-<?php 
-    include '../model/notification.php';
+<?php
+include '../model/notification.php';
 ?>
 <div class="row">
-<div class="row">
+    <div class="row">
         <h4 class="title_cate">THÊM MỚI SẢN PHẨM</h4>
     </div>
     <div class="row formcontent">
         <form action="index.php?act=addsp" enctype="multipart/form-data" method="POST">
+            <?php if (isset($thongbao) && $thongbao != '') { ?>
+                <div class="row">
+                    <p style="color: red;"><?= $thongbao ?></p>
+                </div>
+            <?php } ?>
             <div class="row mb10">
                 <p class="mb10">Mã sản phẩm</p>
                 <input type="text" value="AUTO INCREMENT - Tự động tăng" name="masp" id="" disabled>

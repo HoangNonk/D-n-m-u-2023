@@ -11,12 +11,4 @@
             ORDER BY soluong DESC";
         return pdo_query($sql);
     }
-
-    function thongke_bl_sp() {
-        $sql = "SELECT sp.id, sp.name, sp.price,
-        COUNT(*) 'sl_binhluan',
-        FROM sanpham sp JOIN binhluan bl ON sp.id = bl.idpro
-        GROUP BY sp.id, sp.name
-        ORDER BY soluong DESC";
-        return pdo_query($sql);
-    }
+?>

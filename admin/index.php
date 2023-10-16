@@ -130,19 +130,30 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $file_name = str_replace(' ', '', $file['name']);
                 $folder = '../upload/';
 
+                $same = 0;
+                foreach ($list_sanpham as $sp) {
+                    if ($tensanpham == $sp['name']) {
+                        $thongbao = 'Tên sản phẩm đã tồn tại !';
+                        $same = 1;
+                    }
+                }
+
                 // Tạo đường dẫn file
                 $target_file = $folder . $file_name;
 
-                if ($danhmuc == 'not_exist') {
-                    $_SESSION['dm_err'] = '1';
-                } else if ($danhmuc == '') {
-                    $_SESSION['dm_empty'] = '1';
-                } else {
-                    move_uploaded_file($file['tmp_name'], $target_file);
-                    add_sanpham($danhmuc, $tensanpham, $giasanpham, $file_name, $mota);
-                    $_SESSION['add'] = 'listsp';
-                    header('location: index.php?act=listsp');
+                if ($same == 0) {
+                    if ($danhmuc == 'not_exist') {
+                        $_SESSION['dm_err'] = '1';
+                    } else if ($danhmuc == '') {
+                        $_SESSION['dm_empty'] = '1';
+                    } else {
+                        move_uploaded_file($file['tmp_name'], $target_file);
+                        add_sanpham($danhmuc, $tensanpham, $giasanpham, $file_name, $mota);
+                        $_SESSION['add'] = 'listsp';
+                        header('location: index.php?act=listsp');
+                    }
                 }
+
             }
             include 'sanpham/add.php';
             break;

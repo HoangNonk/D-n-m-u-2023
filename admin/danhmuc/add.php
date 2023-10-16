@@ -4,11 +4,6 @@
     </div>
     <div class="row formcontent">
         <form action="index.php?act=adddm" method="POST">
-            <?php if (isset($thongbao) && $thongbao != '') { ?>
-                <div class="row">
-                    <p style="color: red;"><?= $thongbao ?></p>
-                </div>
-            <?php } ?>
             <div class="row mb10">
                 <p class="mb10">Mã loại</p>
                 <input type="text" value="AUTO INCREMENT - Tự động tăng" name="maloai" id="" disabled>
@@ -17,6 +12,11 @@
                 <p class="mb10">Tên loại</p>
                 <input type="text" name="tenloai" id="" required>
             </div>
+            <?php if (isset($thongbao) && $thongbao != '') { ?>
+                <div class="row">
+                    <p style="color: red;"><?= $thongbao ?></p>
+                </div>
+            <?php } ?>
             <div class="row mb10">
                 <input type="submit" name="themmoi" value="Thêm mới">
                 <input type="reset" value="Nhập lại">
