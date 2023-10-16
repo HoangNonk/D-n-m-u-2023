@@ -2,7 +2,7 @@
     <img width="25%" class="logo_sign" src="upload/dangky.png" alt="">
     <div class="row mb">
         <h3 class="title_cate">Đăng kí thành viên</h3>
-        <div class="boxcontent formtaikhoan">
+        <div class="boxcontent formtaikhoan ">
             <form action="index.php?act=dangky" method="POST">
                 <div class="row mb10">
                     <p class="mb10">Tài khoản</p>
@@ -15,6 +15,10 @@
                 <div class="row mb10">
                     <p class="mb10">Nhập lại mật khẩu</p>
                     <input type="password" name="repass" id="" placeholder="Mật khảu phải có ít nhất 8 ký tự" pattern=".{8,}" title="Mật khảu phải có ít nhất 8 ký tự" required>
+                </div>
+                <div class="row mb10">
+                    <p class="mb10">Ảnh đại diện</p>
+                    <input type="file" name="anh" accept=".jpg, .jpeg, .png, .jfif, .gif" id="" required>
                 </div>
                 <div class="row mb10">
                     <p class="mb10">Email</p>
@@ -42,4 +46,3 @@
         </div>
     </div>
 </div>
-

@@ -7,7 +7,7 @@
             </video>
         </div>
     </div>
-    <div class="row" style="margin-top: -3%">
+    <div class="row">
         <h4 class="title_cate">Sản phẩm mới</h4>
     </div>
     <div class="row products mb10">

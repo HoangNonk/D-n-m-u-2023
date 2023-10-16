@@ -16,6 +16,7 @@ include '../model/notification.php';
                 <tr>
                     <th><i class="fa-solid fa-square-check fa-xl"></i></th>
                     <th>ID</th>
+                    <!-- <th>Avatar</th> -->
                     <th>User</th>
                     <th>Pass</th>
                     <th>Email</th>
@@ -46,7 +47,10 @@ include '../model/notification.php';
                                 <?php } ?>
                             </td>
                             <td><?= $id ?></td>
-                            <td><?= $user ?></td>
+                            <td>
+                                <img width="60px" src="../upload/<?= $img ?>" alt="">
+                                <?= $user ?>
+                            </td>
                             <td><?= $pass ?></td>
                             <td><?= $email ?></td>
                             <td><?= $address ?></td>

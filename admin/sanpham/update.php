@@ -6,7 +6,7 @@
         <form action="index.php?act=updatesp" enctype="multipart/form-data" method="POST">
             <div class="row mb10">
                 <p class="mb10">Mã sản phẩm</p>
-                <input type="text" value="AUTO INCREMENT - Tự động tăng" name="masp" id="" value="<?= $sp['id'] ?>" disabled>
+                <input type="text" value="<?= $sp['id'] ?>" disabled>
                 <input type="hidden" name="id" value="<?= $sp['id'] ?>">
             </div>
             <div class="row mb10">

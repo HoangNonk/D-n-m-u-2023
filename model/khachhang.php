@@ -8,9 +8,9 @@
         return pdo_query($sql);
     }
 
-    function add_kh($user, $pass, $email, $address, $tel, $role) {
-        $sql = "INSERT INTO taikhoan(user, pass, email, address, tel, role) 
-                VALUES ('$user','$pass','$email','$address','$tel','$role')";
+    function add_kh($user, $pass, $email, $address, $tel, $role, $img) {
+        $sql = "INSERT INTO taikhoan(user, pass, img, email, address, tel, role) 
+                VALUES ('$user','$pass','$img','$email','$address','$tel','$role')";
         pdo_execute($sql);
     }
 
@@ -19,8 +19,8 @@
         pdo_execute($sql);
     }
 
-    function update_info_user($id, $email, $phone, $address) {
-        $sql = "UPDATE taikhoan SET email='$email',address='$address',tel='$phone' WHERE id = '$id'";
+    function update_info_user($id, $email, $phone, $address, $img) {
+        $sql = "UPDATE taikhoan SET email='$email',address='$address',tel='$phone', img='$img' WHERE id = '$id'";
         pdo_execute($sql);
     }
 

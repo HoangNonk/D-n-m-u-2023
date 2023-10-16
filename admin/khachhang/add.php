@@ -7,7 +7,7 @@ include '../model/notification.php';
         <h4 class="title_cate">THÊM MỚI TÀI KHOẢN</h4>
     </div>
     <div class="row formcontent">
-        <form action="index.php?act=addkh" method="POST">
+        <form action="index.php?act=addkh" enctype="multipart/form-data" method="POST">
             <div class="row mb10">
                 <p class="mb10">Mã khách hàng</p>
                 <input type="text" value="AUTO INCREMENT - Tự động tăng" name="makh" id="" disabled>
@@ -19,6 +19,10 @@ include '../model/notification.php';
             <div class="row mb10">
                 <p class="mb10">Mật khẩu</p>
                 <input type="password" name="mkkh" id="" required>
+            </div>
+            <div class="row mb10">
+                <p class="mb10">Ảnh đại diện</p>
+                <input type="file" name="anh" accept=".jpg, .jpeg, .png, .jfif, .gif" id="" required>
             </div>
             <div class="row mb10">
                 <p class="mb10">Email</p>

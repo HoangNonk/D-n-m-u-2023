@@ -1,9 +1,9 @@
-<div class="row m10 flex between">
+<div class="row m10 flex between heightmiddlescreen">
     <img width="25%" class="logo_sign" src="upload/reset-password.png" alt="">
     <div class="row mb">
         <h3 class="title_cate">Đổi mật khẩu</h3>
         <div class="boxcontent formtaikhoan">
-            <form action="index.php?act=updatemk" method="POST">
+            <form action="index.php?act=updatemk" method="POST" class="">
                 <input type="hidden" value="<?= $kh['id'] ?>" name="id" id="">
                 <div class="row mb10">
                     <p class="mb10">Mật khẩu cũ</p>
@@ -11,11 +11,11 @@
                 </div>
                 <div class="row mb10">
                     <p class="mb10">Mật khẩu mới</p>
-                    <input type="password" name="pass" id="" placeholder="Tài khoản phải có ít nhất 8 ký tự" pattern=".{8,}" title="Mật khảu phải có ít nhất 8 ký tự" required>
+                    <input type="password" name="pass" id="" placeholder="Mật khẩu phải có ít nhất 8 ký tự" pattern=".{8,}" title="Mật khảu phải có ít nhất 8 ký tự" required>
                 </div>
                 <div class="row mb10">
                     <p class="mb10">Nhập lại mật khẩu</p>
-                    <input type="password" name="repass" id="" placeholder="Tài khoản phải có ít nhất 8 ký tự" pattern=".{8,}" title="Mật khảu phải có ít nhất 8 ký tự" required>
+                    <input type="password" name="repass" id="" placeholder="Mật khẩu phải có ít nhất 8 ký tự" pattern=".{8,}" title="Mật khảu phải có ít nhất 8 ký tự" required>
                 </div>
                 <?php if (isset($thongbao) && $thongbao != '') { ?>
                     <div class="row">

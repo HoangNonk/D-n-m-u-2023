@@ -15,7 +15,7 @@
         <h3 class="title_cate"><?= $ten_dm ?></h3>
     <?php } ?>
 
-    <div class="row products">
+    <div class="row products <?= count($list_sanpham) <= 4 ? 'heightmiddlescreen' : '' ?>">
         <?php if (count($list_sanpham) == 0) { ?>
             <div class="row flex">
                 <p>Chưa có sản phẩm nào.</p>

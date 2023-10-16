@@ -41,6 +41,7 @@
     <p style="font-style: italic; font-size: 0.8vw">This belong to &copy; Longlhph31572@fpt.edu.vn</p>
 </div>
 </body>
+<script src="index.js"></script>
 
 <script>
     const comment = document.getElementById('boxcomment')
@@ -96,6 +97,26 @@ function sendProductID(productId) {
             setTimeout(() => {
                 alert('Thêm vào giỏ hàng thành công')
             }, 1000)
+        }
+    });
+}
+
+function plus(productId) {
+    $.ajax({
+        type: "POST",
+        url: "index.php?act=giohang",  // Điều này là URL của tệp PHP bạn muốn sử dụng để xử lý yêu cầu
+        data: {product_id: productId}, // Gửi id sản phẩm lên server
+        success: function(response) {
+        }
+    });
+}
+
+function minus(productId) {
+    $.ajax({
+        type: "POST",
+        url: "index.php?act=giohang",  // Điều này là URL của tệp PHP bạn muốn sử dụng để xử lý yêu cầu
+        data: {product_id: productId}, // Gửi id sản phẩm lên server
+        success: function(response) {
         }
     });
 }

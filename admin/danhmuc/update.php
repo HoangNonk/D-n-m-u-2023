@@ -13,7 +13,7 @@
             </div>
             <div class="row mb10">
                 Tên loại <br>
-                <input type="text" name="tenloai" value=<?= $dm['name'] ?> id="">
+                <input type="text" name="tenloai" value="<?= $dm['name'] ?>" id="">
             </div>
             <div class="row mb10">
                 <input type="submit" name="update" value="Cập nhật">

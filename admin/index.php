@@ -59,7 +59,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                     }
                 }
 
-                if ($same) {
+                if ($same == 0) {
                     add_danhmuc($_POST['tenloai'], '');
                     $_SESSION['add'] = 'listdm';
                     header('location: index.php?act=listdm');
@@ -226,6 +226,13 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $sdtkh = $_POST['sdtkh'];
                 $vaitro = $_POST['vaitro'];
 
+                $file = $_FILES['anh'];
+                $file_name = str_replace(' ', '', $file['name']);
+                $folder = '../upload/';
+
+                // Tạo đường dẫn file
+                $target_file = $folder . $file_name;
+
                 $same = 0;
                 foreach ($list_kh as $kh) {
                     if ($tkkh == $kh['user']) {
@@ -245,7 +252,8 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 }
 
                 if ($same == 0) {
-                    add_kh($tkkh, $mkkh, $email, $diachikh, $sdtkh, $vaitro);
+                    move_uploaded_file($file['tmp_name'], $target_file);
+                    add_kh($tkkh, $mkkh, $email, $diachikh, $sdtkh, $vaitro, $file_name);
                     header('location: index.php?act=listkh');
                     $_SESSION['add'] = 'listkh';
                 }

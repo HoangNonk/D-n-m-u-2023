@@ -1,5 +1,6 @@
-<div class="row m10 flex between">
-    <img width="25%" class="logo_sign" src="upload/user.png" alt="">
+<div class="row m10 flex between heightmiddlescreen">
+    <!-- <img width="25%" class="logo_sign" src="upload/user.png" alt=""> -->
+    <img width="25%" class="logo_sign" src="upload/<?= $kh['img'] != '' ? $kh['img'] : 'user.png' ?>" alt="">
     <div class="row mb">
         <h3 class="title_cate">Thông tin tài khoản</h3>
         <div class="boxcontent formtaikhoan">

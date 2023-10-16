@@ -31,7 +31,7 @@
                 foreach ($list_bl as $bl) {
                     if ($sp['id'] == $bl['idpro']) { ?>
                         <div class="commentbox row mb10 flex al-start mb10">
-                            <img width="40px" src="upload/user.png" alt="">
+                            <img style="border-radius: 50%" width="50px" height="50px" src="upload/<?= $_SESSION['avatar'] != '' ? $_SESSION['avatar'] : 'user.png'?>" alt="">
                             <div class="messbox row">
                                 <?php foreach ($list_kh as $kh) {
                                     if ($kh['id'] == $bl['iduser']) { ?>

@@ -5,8 +5,13 @@
         return pdo_query($sql);
     }
 
-    function tongtien($iduser, $id) {
-        $sql = "SELECT SUM(giohang.dongia) as tongdongia from giohang where iduser = '$iduser' and id = '$id'";
+    function tongtien($iduser) {
+        $sql = "SELECT SUM(giohang.dongia*giohang.soluong) as tongdongia from giohang where iduser = '$iduser'";
+        return pdo_query_one($sql);
+    }
+
+    function tongsanpham($iduser) {
+        $sql = "SELECT SUM(giohang.soluong) as tongsanpham from giohang where iduser = '$iduser'";
         return pdo_query_one($sql);
     }
 
@@ -18,5 +23,10 @@
     function them_vao_giohang($iduser, $idpro, $tensp, $anh, $gia, $sl) {
         $sql = "INSERT INTO giohang (iduser, idpro, tensp, anhsp, dongia, soluong) 
         VALUES ('$iduser','$idpro','$tensp','$anh','$gia','$sl')";
+        pdo_execute($sql);
+    }
+    
+    function delete_sp_giohang($idpro, $iduser) {
+        $sql = "DELETE from giohang where idpro = '$idpro' and iduser = '$iduser'";
         pdo_execute($sql);
     }

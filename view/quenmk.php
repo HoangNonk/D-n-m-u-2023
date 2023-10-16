@@ -1,4 +1,4 @@
-<div class="row m10 flex between">
+<div class="row m10 flex between heightmiddlescreen">
     <img width="25%" class="logo_sign" src="upload/quenmk.png" alt="">
     <div class="row mb">
         <h3 class="title_cate">Quên mật khẩu</h3>

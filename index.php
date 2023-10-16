@@ -24,6 +24,10 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
 
     switch ($act) {
         case 'giohang':
+            $sl = tongsanpham($_SESSION['iduser']);
+            $total = tongtien($_SESSION['iduser']);
+            include 'view/controluser.php';
+
             if (isset($_POST['product_id'])) {
                 $idpro = $_POST['product_id'];
 
@@ -32,7 +36,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                     if ($idpro == $row['idpro']) {
                         $sl = $row['soluong'] + 1;
                         $same = 1;
-                        update_soluong($sl,$idpro);
+                        update_soluong($sl, $idpro);
                         break;
                     }
                 }
@@ -44,10 +48,28 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                     $tensp = $sp['name'];
                     $anhsp = $sp['img'];
                     $gia = $sp['price'];
-                    $soluong = $soluong + 1;
+                    $sl = $soluong + 1;
                     them_vao_giohang($iduser, $idpro, $tensp, $anhsp, $gia, $sl);
                 }
             }
+            $giohang = list_giohang($_SESSION['iduser']);
+            include 'view/giohang.php';
+            break;
+
+        case 'xoasp_giohang':
+            if (isset($_GET['id']) && ($_GET['id'] > 0)) {
+                delete_sp_giohang($_GET['id'], $_SESSION['iduser']);
+            } else {
+                //  Xóa danh mục khi chọn checkbox
+                if (isset($_POST['delete_checkbox']) && isset($_POST['checkbox'])) {
+                    delete_checkbox_sanpham($_POST['checkbox']);
+                    $_SESSION['delete'] = '1';
+                } else {
+                    $_SESSION['checkbox_err'] = '1';
+                }
+            }
+            $sl = tongsanpham($_SESSION['iduser']);
+            $total = tongtien($_SESSION['iduser']);
             $giohang = list_giohang($_SESSION['iduser']);
             include 'view/controluser.php';
             include 'view/giohang.php';
@@ -62,6 +84,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                             $_SESSION['signed'] = $kh['role'];
                             $_SESSION['iduser'] = $kh['id'];
                             $_SESSION['nameuser'] = $kh['user'];
+                            $_SESSION['avatar'] = $kh['img'];
                         } else {
                             $thongbao = 'Tài khoản hoặc mật khẩu không đúng !';
                         }
@@ -81,6 +104,11 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $phone = $_POST['phone'];
                 $address = $_POST['address'];
                 $email = $_POST['email'];
+
+                $file = $_FILES['anh'];
+                $file_name = str_replace(' ', '', $file['name']);
+                $folder = 'upload/';
+
 
                 $same = 0;
                 foreach ($list_kh as $kh) {
@@ -102,7 +130,8 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
 
                 if ($same == 0) {
                     if ($_POST['pass'] == $_POST['repass']) {
-                        add_kh($user, $pass, $email, $address, $phone, 2);
+                        move_uploaded_file($file['tmp_name'], $target_file);
+                        add_kh($user, $pass, $email, $address, $phone, 2, $file_name);
                         $_SESSION['signup'] = 1;
                     } else {
                         echo '<script>event.preventDefault()</script>';
@@ -159,7 +188,20 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                 $email = $_POST['email'];
                 $phone = $_POST['phone'];
                 $address = $_POST['address'];
-                update_info_user($id, $email, $phone, $address);
+
+                if (isset($_FILES['anh']) && ($_FILES['anh']['size'] > 0)) {
+                    $file = $_FILES['anh'];
+                    // sử dụng str_replace để xóa các khoảng trắng, tránh lỗi chèn src có space trong thẻ img
+                    $file_name = str_replace(' ', '', $file['name']);
+                    $folder = 'upload/';
+                    $target_file = $folder . $file_name;
+                    move_uploaded_file($file['tmp_name'], $target_file);
+                    $_SESSION['avatar'] = $file_name;
+                } else {
+                    $file_name = $_POST['anh'];
+                }
+
+                update_info_user($id, $email, $phone, $address, $file_name);
                 $_SESSION['updateinfo'] = $id;
             }
             include 'view/controluser.php';
