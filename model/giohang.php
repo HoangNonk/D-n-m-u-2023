@@ -20,6 +20,12 @@
         pdo_execute($sql);
     }
 
+    function get_row_soluong($idpro) {
+        $sql = "SELECT giohang.soluong where idpro = '$idpro'";
+        $new_quantity = pdo_query_one($sql);
+        return $new_quantity;
+    }
+
     function them_vao_giohang($iduser, $idpro, $tensp, $anh, $gia, $sl) {
         $sql = "INSERT INTO giohang (iduser, idpro, tensp, anhsp, dongia, soluong) 
         VALUES ('$iduser','$idpro','$tensp','$anh','$gia','$sl')";

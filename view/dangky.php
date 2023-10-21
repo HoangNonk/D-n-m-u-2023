@@ -3,10 +3,10 @@
     <div class="row mb">
         <h3 class="title_cate">Đăng kí thành viên</h3>
         <div class="boxcontent formtaikhoan ">
-            <form action="index.php?act=dangky" method="POST">
+            <form action="index.php?act=dangky" enctype="multipart/form-data" method="POST">
                 <div class="row mb10">
                     <p class="mb10">Tài khoản</p>
-                    <input type="text" name="user" id="" placeholder="Tài khoản phải có ít nhất 8 ký tự" required>
+                    <input type="text" name="user" id="" placeholder="Tài khoản phải có ít nhất 8 ký tự" pattern=".{8,}" title="Tài khoản phải có ít nhất 8 ký tự" required>
                 </div>
                 <div class="row mb10">
                     <p class="mb10">Mật khẩu</p>

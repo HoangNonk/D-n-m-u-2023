@@ -24,7 +24,8 @@ $notification = [
         "name" => "dm_empty",
         "notice" => "Chưa có danh mục\nCần tạo danh mục trước !",
     ],
-];                                                                                                                                                                                                                                                           
+];
+                                                                                                                                                                                                                                                           
     function alert($notification){
         foreach ($notification as $key) {
             if (isset($_SESSION[$key['name']])) {

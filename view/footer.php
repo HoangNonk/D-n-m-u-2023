@@ -104,9 +104,10 @@ function sendProductID(productId) {
 function plus(productId) {
     $.ajax({
         type: "POST",
-        url: "index.php?act=giohang",  // Điều này là URL của tệp PHP bạn muốn sử dụng để xử lý yêu cầu
+        url: "update_row_cart.php",  // Điều này là URL của tệp PHP bạn muốn sử dụng để xử lý yêu cầu
         data: {product_id: productId}, // Gửi id sản phẩm lên server
         success: function(response) {
+            $('#quantity-' + productId).text(response);
         }
     });
 }
@@ -114,7 +115,7 @@ function plus(productId) {
 function minus(productId) {
     $.ajax({
         type: "POST",
-        url: "index.php?act=giohang",  // Điều này là URL của tệp PHP bạn muốn sử dụng để xử lý yêu cầu
+        url: "update_row_cart.php",  // Điều này là URL của tệp PHP bạn muốn sử dụng để xử lý yêu cầu
         data: {product_id: productId}, // Gửi id sản phẩm lên server
         success: function(response) {
         }

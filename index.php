@@ -28,6 +28,19 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
             $total = tongtien($_SESSION['iduser']);
             include 'view/controluser.php';
 
+            if (isset($_SESSION['product_id'])) {
+                $idpro = $_SESSION['product_id'];
+                unset( $_SESSION['product_id']);
+
+                foreach ($giohang as $row) {
+                    if ($idpro == $row['idpro']) {
+                        $sl = $row['soluong'] + 1;
+                        update_soluong($sl, $idpro);
+                        break;
+                    }
+                }
+            }
+
             if (isset($_POST['product_id'])) {
                 $idpro = $_POST['product_id'];
 
@@ -52,6 +65,7 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                     them_vao_giohang($iduser, $idpro, $tensp, $anhsp, $gia, $sl);
                 }
             }
+
             $giohang = list_giohang($_SESSION['iduser']);
             include 'view/giohang.php';
             break;
@@ -134,7 +148,6 @@ if (isset($_GET['act']) && $_GET['act'] != '') {
                         add_kh($user, $pass, $email, $address, $phone, 2, $file_name);
                         $_SESSION['signup'] = 1;
                     } else {
-                        echo '<script>event.preventDefault()</script>';
                         $thongbao = 'Mật khẩu không khớp !';
                     }
                 }
