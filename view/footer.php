@@ -2,7 +2,9 @@
 <div class="boxcenter">
     <div id="footer" class="row">
         <div class="row flex center fl-col mb">
-            <img width="80px" src="upload/logo.png" alt="">
+            <a href="index.php">
+                <img width="80px" src="upload/logo.png" alt="">
+            </a>
             <h3>X Shop</h3>
             <p style="font-style:italic; text-align: center">X Shop là cửa hàng chuyển phân phối và bảo hành các sản phẩm chính hãng từ Apple <br> Chuyên cung cấp các linh kiện airpod, iphone chính hãng và mới nhất , ...
             </p>

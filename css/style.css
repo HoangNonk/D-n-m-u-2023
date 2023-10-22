@@ -89,6 +89,13 @@ a {
 
 .searching input {
     padding: 5px;
+    padding-left: 10px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    margin-right: 10px;
 }
 
 .searching input:active {
@@ -97,6 +104,7 @@ a {
 
 .searching button {
     padding: 5px;
+    border-radius: 5px;
     background-color: rgba(53, 53, 53, 0.8);
     border: 1px solid #fff;
     color: #fff;
@@ -174,6 +182,15 @@ a {
 .sticky a,
 .sticky .dropdown {
     color: #353535;
+}
+
+.sticky input {
+    border-bottom: 1px solid rgba(53, 53, 53, 0.3);
+    color: rgba(53, 53, 53, 0.8);
+}
+
+.sticky button:hover {
+    box-shadow: 0 0 5px rgba(53, 53, 53, 0.8);
 }
 
 .menu ul {

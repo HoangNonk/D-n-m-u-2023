@@ -44,7 +44,7 @@ include '../model/notification.php';
                                         <a href="<?= $suadm ?>"><i class="fa-solid fa-pen"></i></a>
                                     </button>
                                     <button class="button delete">
-                                        <a onclick="return confirm(` Xóa các danh mục này ?\n\n[ ! ] Việc này cũng sẽ xóa các thông tin liên quan :\n* Sản phẩm của danh mục\n* Bình luận về sản phẩm`)" href="<?= $xoadm ?>"><i class="fa-solid fa-trash"></i></a>
+                                        <a onclick="return confirm(` Xóa danh mục này ?\n\n[ ! ] Việc này cũng sẽ xóa các thông tin liên quan :\n* Sản phẩm của danh mục\n* Bình luận về sản phẩm`)" href="<?= $xoadm ?>"><i class="fa-solid fa-trash"></i></a>
                                     </button>
                                 </div>
                             </td>

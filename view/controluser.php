@@ -12,7 +12,7 @@
                     <ul class="dropdown-list">
                         <li>
                             <a href="index.php?act=info&id=<?= $_SESSION['iduser'] ?>">
-                            <img width="50px" height="50px" src="upload/<?= $_SESSION['avatar'] != '' ? $_SESSION['avatar'] : 'user.png' ?>" alt="">
+                                <img width="50px" height="50px" src="upload/<?= $_SESSION['avatar'] != '' ? $_SESSION['avatar'] : 'user.png' ?>" alt="">
                                 <h5><?= $_SESSION['nameuser'] ?></h5>
                             </a>
                         </li>
@@ -29,7 +29,7 @@
                     <ul class="dropdown-list">
                         <li>
                             <a href="index.php?act=info&id=<?= $_SESSION['iduser'] ?>">
-                            <img width="50px" height="50px" src="upload/<?= $_SESSION['avatar'] != '' ? $_SESSION['avatar'] : 'user.png' ?>" alt="">
+                                <img width="50px" height="50px" src="upload/<?= $_SESSION['avatar'] != '' ? $_SESSION['avatar'] : 'user.png' ?>" alt="">
                                 <h5><?= $_SESSION['nameuser'] ?></h5>
                             </a>
                         </li>
@@ -41,7 +41,13 @@
                 </li>
             <?php } ?>
         <?php } else { ?>
-            <a href="index.php?act=dangnhap"><i class="fa-solid fa-user"></i> Đăng nhập/Đăng ký </a>
+            <li id="user" class="dropdown"><a href="index.php?act=dangnhap"><i class="fa-solid fa-user"></i> Đăng nhập/Đăng ký </a>
+                <!-- <a href="index.php?act=dangnhap"><i class="fa-solid fa-user"></i> Đăng nhập/Đăng ký </a> -->
+                <ul class="dropdown-list">
+                    <li><a href="index.php?act=dangky"> Đăng kí</a></li>
+                    <li><a href="index.php?act=quenmk"> Quên mật khẩu</a></li>
+                </ul>
+            </li>
         <?php } ?>
 
     </div>
@@ -71,7 +77,7 @@
         </ul>
         <form class="searching" action="index.php?act=sanpham" method="POST">
             <input class="" type="search" placeholder="Tìm kiếm sản phẩm" name="kyw">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Tìm</button>
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
     </div>
 </div>
